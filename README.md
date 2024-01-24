@@ -1,1 +1,0 @@
-# joheitzman.github.io
