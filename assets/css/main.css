@@ -142,6 +142,7 @@ input, select, textarea {
 	
 	h7 {
 		font-size = 14px;
+		text-align: justify;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
