@@ -245,9 +245,7 @@ input, select, textarea {
         width: 100%;	
     }
     #tagline {
-        height: 80px;
-        overflow: shown;
-        line-height: 80px; /* vert-center */
+        overflow: hidden; /* vert-center */
     }
 
 /* Row */
