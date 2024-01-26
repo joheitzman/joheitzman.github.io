@@ -169,7 +169,6 @@ input, select, textarea {
 	h6 {
 		font-size: 0.7em;
 		line-height: 1.5em;
-		text-align: justify;
 	}
 
 	sub {
@@ -236,6 +235,20 @@ input, select, textarea {
 	.align-right {
 		text-align: right;
 	}
+	
+	.fulljustify {
+    	text-align:justify;
+    }
+    .fulljustify:after {
+        content: "";
+        display: inline-block;
+        width: 100%;	
+    }
+    #tagline {
+        height: 80px;
+        overflow: hidden;
+        line-height: 80px; /* vert-center */
+    }
 
 /* Row */
 
