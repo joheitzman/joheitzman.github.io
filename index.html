@@ -24,6 +24,9 @@
 			.tagline { overflow: hidden; }
 			.tagline.fulljustify:after { display: none; }
 			.pub-list .csl-entry { margin-bottom: 0.9em; }
+			.approach { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2em; margin-bottom: 1em; }
+			.approach h5 .icon { color: #00aaff; margin-right: 0.35em; }
+			@media screen and (max-width: 736px) { .approach { grid-template-columns: 1fr; } }
 			.team article { display: flex; align-items: flex-start; gap: 1.5em; margin-bottom: 2em; }
 			.team .image.avatar { flex: 0 0 7em; width: 7em; margin: 0; }
 			.team .image.avatar img { width: 7em; height: 7em; border-radius: 100%; object-fit: cover; }
@@ -152,13 +155,25 @@
 									<!-- Add your lab name here once you've chosen one, e.g. <p><b>[Lab name]</b>, [Department], [Institution]</p> -->
 									<p>We study how a changing ocean rewires the interactions that hold coastal ecosystems together. As seawater warms and absorbs more CO<sub>2</sub>, the balance between corals, algae and microbes shifts, with knock-on effects for reef growth, disease and the carbon these habitats store. We combine fieldwork, natural CO<sub>2</sub> seeps and controlled experiments to work out the mechanisms behind these shifts and what they mean for the future of coastal seas.</p>
 
-									<h4>Focus areas</h4>
-									<ul class="feature-icons">
-										<li class="icon solid fa-water">Coral-algae competition in a high-CO<sub>2</sub> ocean</li>
-										<li class="icon solid fa-bacteria">Emerging coral diseases in temperate and marginal reefs</li>
-										<li class="icon solid fa-leaf">Blue carbon: how acidification changes coastal carbon storage</li>
-										<li class="icon solid fa-microscope">Stress physiology of the coral-algal symbiosis</li>
-									</ul>
+									<h4>What we do</h4>
+									<div class="approach">
+										<div class="approach-item">
+											<h5><span class="icon solid fa-water"></span> Field monitoring</h5>
+											<p>Long-term SCUBA monitoring of coral and algal communities, built on years of fieldwork at Shimoda and the natural CO<sub>2</sub> seeps of Shikine Island, nationwide coastal surveys with the TARA-JAMBIO Blue Carbon expedition (Kagawa, Niigata, Hokkaido and Miyagi), and work within the ICONA network of natural CO<sub>2</sub> analogue sites. Our home base is now the Seto Inland Sea.</p>
+										</div>
+										<div class="approach-item">
+											<h5><span class="icon solid fa-bacteria"></span> Microbial ecology</h5>
+											<p>Characterising the microbial communities of corals, turf algae and coral disease mats using 16S amplicon sequencing (QIIME2) and functional prediction (PICRUSt2), to understand how microbes mediate coral-algae interactions, disease outbreaks and ecosystem degradation.</p>
+										</div>
+										<div class="approach-item">
+											<h5><span class="icon solid fa-vial"></span> Coral eco-physiology</h5>
+											<p>Measuring how corals and their symbionts respond to warming and acidification: calcification, photosynthesis and respiration, microsensor profiling of the coral surface, seawater carbonate chemistry, stable isotopes, and cell-level imaging with confocal microscopy.</p>
+										</div>
+										<div class="approach-item">
+											<h5><span class="icon solid fa-dna"></span> Molecular responses to climate change</h5>
+											<p>Linking what we see in the field and in physiology to changes in gene content and gene expression, using genomic and transcriptomic approaches to identify how corals, algae and their microbes respond and adapt to a changing ocean.</p>
+										</div>
+									</div>
 
 									<h4>Team</h4>
 									<div class="team">
