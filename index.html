@@ -4,36 +4,58 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html lang="en">
 	<head>
-		<title>Joshua M. Heitzman</title>
+		<title>Joshua M. Heitzman, Ph.D.</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Joshua M. Heitzman, Ph.D. Marine ecologist studying coral eco-physiology, coral disease, ocean acidification and blue carbon in coastal ecosystems." />
+		<meta name="author" content="Joshua M. Heitzman" />
+		<meta property="og:title" content="Joshua M. Heitzman, Ph.D." />
+		<meta property="og:description" content="Coral eco-physiology, coral disease dynamics, ocean acidification and blue carbon." />
+		<meta property="og:image" content="https://joheitzman.github.io/images/banner.jpg" />
+		<meta property="og:url" content="https://joheitzman.github.io/" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			/* Small additions on top of the HTML5 UP theme */
+			.placeholder { background: #fff8e1; border-left: 4px solid #f2b705; padding: 0.75em 1em; margin-bottom: 1.5em; }
+			.timeline li { padding-top: 0.6em !important; }
+			.timeline .when { float: right; color: #888; font-size: 0.9em; margin-left: 1em; }
+			.timeline .where { display: block; font-size: 0.9em; color: #777; }
+			.tagline { overflow: hidden; }
+			.tagline.fulljustify:after { display: none; }
+			.pub-list .csl-entry { margin-bottom: 0.9em; }
+			.team article { display: flex; align-items: flex-start; gap: 1.5em; margin-bottom: 2em; }
+			.team .image.avatar img { width: 7em; height: 7em; border-radius: 100%; object-fit: cover; }
+			@media screen and (max-width: 480px) { .team article { flex-direction: column; } .timeline .when { float: none; display: block; margin-left: 0; } }
+		</style>
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
 			<section id="header">
 				<header>
-					<span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
+					<span class="image avatar"><img src="images/avatar.jpg" alt="Portrait of Joshua M. Heitzman" /></span>
 					<h1 id="logo"><a href="#">Joshua M. Heitzman</a></h1>
-					<p>Personal Webpage</p>
+					<p>Marine Ecologist</p>
 				</header>
 				<nav id="nav">
 					<ul>
-						<li><a href="#one" class="active">About</a></li>						
-						<li><a href="#two" class="active"><i>Curriculum Vitae</i> (CV)</a></li>
-						<li><a href="#three" class="active">Publications</a></li>
+						<li><a href="#about" class="active">About</a></li>
+						<li><a href="#research">Research</a></li>
+						<li><a href="#lab">Lab</a></li>
+						<li><a href="#cv"><i>Curriculum Vitae</i> (CV)</a></li>
+						<li><a href="#publications">Publications</a></li>
+						<li><a href="#contact">Contact</a></li>
 					</ul>
 				</nav>
 				<footer>
 					<ul class="icons">
 						<li><a href="https://twitter.com/smrc_heitzman" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="https://www.researchgate.net/profile/Joshua-Heitzman" class="icon brands fa-researchgate"><span class="label">Research Gate</span></a></li>
-						<li><a href="https://github.com/joheitzman" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href="https://orcid.org/0000-0002-8275-5006" class="icon brands fa-orcid"><span class="label">Orcid</span></a></li>
-						<li><a href="joheitzman@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						<li><a href="https://www.researchgate.net/profile/Joshua-Heitzman" class="icon brands fa-researchgate"><span class="label">ResearchGate</span></a></li>
+						<li><a href="https://github.com/joheitzman" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="https://orcid.org/0000-0002-8275-5006" class="icon brands fa-orcid"><span class="label">ORCID</span></a></li>
+						<li><a href="mailto:joheitzman@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 					</ul>
 				</footer>
 			</section>
@@ -44,462 +66,204 @@
 				<!-- Main -->
 					<div id="main">
 
-						<!-- One - About Section -->
-							<section id="one">
+						<!-- About -->
+							<section id="about">
 								<div class="image main" data-position="center">
-									<img src="images/banner.jpg" alt="" />
+									<img src="images/banner.jpg" alt="Underwater view of a coral community" />
 								</div>
 								<div class="container">
 									<header class="major">
-										<h2>Joshua M. Heitzman</h2>
-										<p>coral eco-physiology | coral disease dynamics | ecology</p>
+										<h2>Joshua M. Heitzman, Ph.D.</h2>
+										<p>coral eco-physiology | coral disease dynamics | ocean acidification | blue carbon</p>
 									</header>
-									<p>I received my Ph.D. from the University of Tsukuba (Shimoda Marine Research Center). My research up until now has been focused on how abiotic environmental stress (e.g. ocean acidification, ocean warming, etc.) affects the surrounding ecosystem (e.g. coral disease, turf algae, etc.), and how this interaction can negatively impact hermatypic corals.</p>
-									<p>I am currently a post-doctoral researcher at Hiroshima University, and conduct field surveys across temperate Japan on coastal algae as part of this year's TARA-Jambio expedition <a href="https://jp.fondationtaraocean.org/expedition/tara-jambio-bluecarbon/" <span class="label">(read about it here).</span></a></p>
+									<!-- TODO: update with your current position once your CV is finalised. -->
+									<p>I am a marine ecologist interested in how environmental change, especially ocean acidification and ocean warming, reshapes biological interactions in coastal ecosystems, and what those shifts mean for corals, algae and the carbon these ecosystems store.</p>
+									<p>I am currently a post-doctoral researcher at the <b>Seto Inland Sea Carbon-neutral Research Center, Hiroshima University</b> (Prof. Shigeki Wada), where I study how ocean acidification affects the carbon sequestration capacity (blue carbon) of coastal ecosystems. As part of this work I took part in the 2025 TARA-JAMBIO Blue Carbon expedition, surveying coastal algae across temperate Japan <a href="https://jp.fondationtaraocean.org/expedition/tara-jambio-bluecarbon/">(read about it here)</a>.</p>
+									<p>I received my Ph.D. from the University of Tsukuba (Shimoda Marine Research Center) under Dr. Sylvain Agostini, studying coral-algae interactions in the Anthropocene, and was a post-doctoral researcher at Arizona State University (Dr. Liza Roger), working on nitro-oxidative stress in the coral-dinoflagellate symbiosis.</p>
 								</div>
 							</section>
-						<!-- Two - Current CV -->
-							<section id="two">
+
+						<!-- Research -->
+							<section id="research">
+								<div class="container">
+									<h3>Research</h3>
+									<p>My work combines field surveys (SCUBA), natural CO<sub>2</sub> seep sites, aquarium experiments and lab techniques from microsensors to microbiome sequencing. It follows a few connected themes:</p>
+									<div class="features">
+										<article>
+											<span class="image"><img src="images/pic03.JPG" alt="Turf algae growing on coral skeleton next to live coral tissue" /></span>
+											<div class="inner">
+												<h4>Coral-algae interactions under ocean acidification</h4>
+												<p>As CO<sub>2</sub> rises, turf algae gain the upper hand over corals. Using laboratory experiments and transplants at volcanic CO<sub>2</sub> seeps off Shikine Island, I study how algae alter the chemistry next to coral tissue, and how this can turn coral skeleton from something that is built into something that is eroded.</p>
+											</div>
+										</article>
+										<article>
+											<span class="image"><img src="images/pic01.jpg" alt="Porites heronensis colony affected by White Mat Syndrome" /></span>
+											<div class="inner">
+												<h4>Coral disease in marginal, warm-temperate communities</h4>
+												<p>I described White Mat Syndrome, a recurring coral disease in temperate Japan linked to summer temperatures and the red alga <i>Gelidium elegans</i>, which acts as a reservoir for the pathogenic microbial mat. This work asks whether high-latitude coral communities can really act as climate refuges.</p>
+											</div>
+										</article>
+										<article>
+											<span class="image"><img src="images/research-reef.jpg" alt="Temperate coral and algal community in Japan" /></span>
+											<div class="inner">
+												<h4>Blue carbon in a high-CO<sub>2</sub> ocean</h4>
+												<p>Seaweed and seagrass beds capture and store carbon. At Hiroshima University I am investigating how ocean acidification changes these coastal ecosystems and their capacity to sequester carbon, from the Seto Inland Sea to the wider Japanese coastline.</p>
+											</div>
+										</article>
+										<article>
+											<span class="image"><img src="images/research-cells.jpg" alt="Confocal image of dissociated coral cells and algal symbionts" /></span>
+											<div class="inner">
+												<h4>Cellular stress in the coral symbiosis</h4>
+												<p>At the cellular scale, I have used cell dissociation, confocal microscopy and fluorescent probes to explore how nitro-oxidative stress affects the partnership between corals and their dinoflagellate symbionts.</p>
+											</div>
+										</article>
+									</div>
+
+									<h4>Methods and expertise</h4>
+									<ul class="feature-icons">
+										<li class="icon solid fa-water">Field surveys and monitoring (SCUBA, 200+ scientific dives)</li>
+										<li class="icon solid fa-vial">Coral eco-physiology</li>
+										<li class="icon solid fa-flask">Seawater chemistry (TA, pH, POC, FDOM, TSS)</li>
+										<li class="icon solid fa-bacteria">Microbial communities (16S, QIIME2)</li>
+										<li class="icon solid fa-microscope">Confocal and SEM microscopy</li>
+										<li class="icon solid fa-syringe">Microsensors (Unisense)</li>
+										<li class="icon solid fa-atom">Stable isotope mass spectrometry (EA-IRMS)</li>
+										<li class="icon solid fa-cube">Experimental aquarium systems</li>
+										<li class="icon solid fa-code">Statistics and figures in R</li>
+										<li class="icon solid fa-language">Bilingual: English and Japanese</li>
+									</ul>
+								</div>
+							</section>
+
+						<!-- Lab -->
+							<section id="lab">
+								<div class="container">
+									<h3>Lab</h3>
+									<!-- TODO: replace this whole section with your lab's details. Delete the .placeholder box when done. -->
+									<div class="placeholder">
+										<p><b>Placeholder:</b> send me your lab name, institution, a short mission statement, and current members, and I'll fill this in.</p>
+									</div>
+									<p><b>[Lab name]</b>, [Department / Center], [Institution]</p>
+									<p>[One or two paragraphs introducing the lab: the big question you are asking, the systems you work in, and what makes your approach distinctive.]</p>
+
+									<h4>Team</h4>
+									<div class="team">
+										<article>
+											<span class="image avatar"><img src="images/avatar.jpg" alt="Joshua M. Heitzman" /></span>
+											<div>
+												<h5>Joshua M. Heitzman, Ph.D.</h5>
+												<p>[Role, e.g. Principal Investigator]<br />[Short bio or research focus]</p>
+											</div>
+										</article>
+										<!-- Copy the <article> block above for each lab member. -->
+									</div>
+
+									<h4>Join the lab</h4>
+									<p>[Are you recruiting students, post-docs or interns? Describe openings, or invite prospective members to get in touch via the <a href="#contact">contact</a> section.]</p>
+								</div>
+							</section>
+
+						<!-- CV -->
+							<section id="cv">
 								<div class="container">
 									<h3><i>Curriculum Vitae</i> (CV)</h3>
-									<p>My current CV (Updated: March 2025) can be downloaded here   <a href="./Updated_CV_2024-2025_w_photos.pdf" class="icon solid fa-file"><span class="label">CV</span></a>
-									</p>
+									<!-- TODO: update the date and PDF link when your new CV is ready. -->
+									<p>The full CV (updated May 2025) is available as a PDF.</p>
+									<ul class="actions">
+										<li><a href="./Updated_CV_2024-2025_w_photos.pdf" class="button primary icon solid fa-download">Download CV</a></li>
+									</ul>
+
+									<h4>Positions</h4>
+									<ul class="alt timeline">
+										<li><span class="when">May 2025 – present</span><b>Post-Doctoral Researcher</b><span class="where">Seto Inland Sea Carbon-neutral Research Center, Hiroshima University, Japan (PI: Prof. Shigeki Wada)</span></li>
+										<li><span class="when">2025</span><b>Researcher</b><span class="where">Shimoda Marine Research Center, University of Tsukuba, Japan (PI: Dr. Sylvain Agostini)</span></li>
+										<li><span class="when">Apr. 2024 – Nov. 2024</span><b>Post-Doctoral Researcher</b><span class="where">School of Molecular Sciences &amp; School of Ocean Futures, Arizona State University, USA (PI: Dr. Liza Roger)</span></li>
+									</ul>
+
+									<h4>Education</h4>
+									<ul class="alt timeline">
+										<li><span class="when">2021 – 2024</span><b>Ph.D., Biological Sciences</b><span class="where">University of Tsukuba (Shimoda Marine Research Center), Japan. Thesis: <i>Coral-algae interactions in the Anthropocene</i></span></li>
+										<li><span class="when">2019 – 2021</span><b>M.Sc., Biological Sciences</b><span class="where">University of Tsukuba (Shimoda Marine Research Center), Japan</span></li>
+										<li><span class="when">2014 – 2019</span><b>B.Sc., Biological Sciences</b><span class="where">University of Tsukuba, Japan</span></li>
+									</ul>
+
+									<h4>Selected awards and funding</h4>
+									<ul class="alt timeline">
+										<li><span class="when">2023</span>Best Oral Presentation Award, 26th Japanese Coral Reef Symposium</li>
+										<li><span class="when">2023</span>Japanese Coral Reef Society Travel Grant, 5th Asia-Pacific Coral Reef Symposium</li>
+										<li><span class="when">2021 – 2024</span>JST SPRING Fellowship, "Coral-algae interactions under ocean acidification"</li>
+										<li><span class="when">2021 – 2024</span>JASSO scholarship repayment exemption for outstanding achievement</li>
+									</ul>
 								</div>
 							</section>
-						<!-- Three - Publications -->
-							<section id="three">
+
+						<!-- Publications -->
+							<section id="publications">
 								<div class="container">
 									<h3>Publications</h3>
-									<p>Click on the images to access publications</p>
+									<p>Featured work (click an image to read the paper)</p>
 									<div class="features">
-									<!-- OA coral-turf algae -->
+										<!-- OA coral-turf algae -->
 										<article>
-											<a href="https://doi.org/10.21203/rs.3.rs-3779657/v1" class="image"><img src="images/pic03.JPG" alt="" /></a>
+											<a href="https://doi.org/10.21203/rs.3.rs-3779657/v1" class="image"><img src="images/pic03.JPG" alt="Turf algae on coral skeleton" /></a>
 											<div class="inner">
 												<h5>Turf algae drives coral bioerosion under high CO<sub>2</sub></h5>
-												<h6 id = "tagline" class = "fulljustify">Turf algal prevalence will increase in coral ecosystems under ocean acidification yet their contribution towards the ongoing and projected degradation of reefs is often overlooked. Turf algal settlement was induced on exposed coral skeleton adjacent to live coral tissue to investigate coral-turf algal interactions through a combination of laboratory and field transplantation (shallow volcanic CO<sub>2</sub> seep) experiments across two temperature regimes. Here, we show that turf algae are competitively favored over corals under high pCO<sub>2</sub> conditions. Turf algae-associated biological activity locally acidified the microenvironment overlying the exposed coral skeleton, leading to its bioerosion. Increases in coral-turf algal interactions could shift coral ecosystems towards net dissolution and should be integrated into global accretion models when considering future carbonate budgets under climate change.<br></h6>
+												<h6 class="tagline fulljustify">Turf algal prevalence will increase in coral ecosystems under ocean acidification yet their contribution towards the ongoing and projected degradation of reefs is often overlooked. Turf algal settlement was induced on exposed coral skeleton adjacent to live coral tissue to investigate coral-turf algal interactions through a combination of laboratory and field transplantation (shallow volcanic CO<sub>2</sub> seep) experiments across two temperature regimes. Here, we show that turf algae are competitively favored over corals under high pCO<sub>2</sub> conditions. Turf algae-associated biological activity locally acidified the microenvironment overlying the exposed coral skeleton, leading to its bioerosion. Increases in coral-turf algal interactions could shift coral ecosystems towards net dissolution and should be integrated into global accretion models when considering future carbonate budgets under climate change.</h6>
 											</div>
-										</article>										
-									<!-- STOTEN WMS -->	
+										</article>
+										<!-- STOTEN WMS -->
 										<article>
-											<a href="https://doi.org/10.1016/j.scitotenv.2023.166379" class="image"><img src="images/pic02.jpg" alt="" /></a>
+											<a href="https://doi.org/10.1016/j.scitotenv.2023.166379" class="image"><img src="images/pic02.jpg" alt="White Mat Syndrome infection experiment" /></a>
 											<div class="inner">
 												<h5>Seasonal coral-algae interactions drive White Mat Syndrome coral disease outbreaks</h5>
-												<h6 id = "tagline" class = "fulljustify">Ocean warming drives not only the increase of known coral disease prevalence but facilitates the emergence of new undescribed ones too. As climate change is restructuring coral ecosystems, novel biological interactions could lead to an increase in coral disease in both tropical and marginal coral communities. White Mat Syndrome (WMS) represents one such emerging coral disease, with outbreaks associated with high algal interactions and seasonal summer temperatures. However, the mechanisms behind its pathogenesis, modes of transmission and causative pathogens remain to be identified. <i>Ex situ</i> infection experiments pairing the coral <i>Porites heronensis</i> together with local potential contributory factors show that the macroalga <i>Gelidium elegans</i> hosts and proliferates the WMS microbial mat. This pathogenic consortium then infects adjacent corals, leading to their mortality. WMS was also observed to transmit following the fragmentation of the microbial mat, which was able to infect healthy corals. Sulfur-cycling bacteria (i.e., <i>Beggiatoa</i>, <i>Desulfobacter</i> sp., Arcobacteraceae species) and the freeliving spirochete <i>Oceanospirochaeta sediminicola</i> were found consistently in both WMS and <i>G. elegans</i> consortia, suggesting they are putative pathogens of WMS. The predicted functional roles of these pathogenic consortia showed degradative processes, hinting that tissue lyses could drive mat formation and spread. Coral-algae interactions will rise due to ongoing ocean warming and coral ecosystem degradation, likely promoting the virulence and prevalence of algal-driven coral diseases.<br></h6>
+												<h6 class="tagline fulljustify">Ocean warming drives not only the increase of known coral disease prevalence but facilitates the emergence of new undescribed ones too. As climate change is restructuring coral ecosystems, novel biological interactions could lead to an increase in coral disease in both tropical and marginal coral communities. White Mat Syndrome (WMS) represents one such emerging coral disease, with outbreaks associated with high algal interactions and seasonal summer temperatures. However, the mechanisms behind its pathogenesis, modes of transmission and causative pathogens remain to be identified. <i>Ex situ</i> infection experiments pairing the coral <i>Porites heronensis</i> together with local potential contributory factors show that the macroalga <i>Gelidium elegans</i> hosts and proliferates the WMS microbial mat. This pathogenic consortium then infects adjacent corals, leading to their mortality. WMS was also observed to transmit following the fragmentation of the microbial mat, which was able to infect healthy corals. Sulfur-cycling bacteria (i.e., <i>Beggiatoa</i>, <i>Desulfobacter</i> sp., Arcobacteraceae species) and the freeliving spirochete <i>Oceanospirochaeta sediminicola</i> were found consistently in both WMS and <i>G. elegans</i> consortia, suggesting they are putative pathogens of WMS. The predicted functional roles of these pathogenic consortia showed degradative processes, hinting that tissue lyses could drive mat formation and spread. Coral-algae interactions will rise due to ongoing ocean warming and coral ecosystem degradation, likely promoting the virulence and prevalence of algal-driven coral diseases.</h6>
 											</div>
 										</article>
-									<!-- MBP WMS -->	
+										<!-- MPB WMS -->
 										<article>
-											<a href="https://doi.org/10.1016/j.marpolbul.2022.113954" class="image"><img src="images/pic01.jpg" alt="" /></a>
+											<a href="https://doi.org/10.1016/j.marpolbul.2022.113954" class="image"><img src="images/pic01.jpg" alt="Porites heronensis with White Mat Syndrome" /></a>
 											<div class="inner">
 												<h5>Recurrent disease outbreak in a warm temperate marginal coral community</h5>
-												<h6 id = "tagline" class = "fulljustify">Coral diseases contribute to the rapid degradation of coral reefs on a global scale. Although widespread in tropical and subtropical reefs, disease outbreaks have not been described in warm temperate areas. Here, we report the outbreak of a new coral disease in a warm temperate marginal coral community in Japan. Outbreaks of the disease have been observed during the summer and autumn months since 2014. It affects the coral species <i>Porites heronensis</i> and was tentatively named "White Mat Syndrome" (WMS) as it consists of a white microbial mat dominated by <i>Thiothrix</i> sp., a sulfide oxidizing bacteria. Outbreaks followed high seasonal temperatures and were associated with the macroalga <i>Gelidium elegans</i>, which acts as a pathogen reservoir. With ocean warming and the anticipated increase in novel coral-algae interactions as some coral species shift poleward, WMS and emerging diseases could hinder the role of temperate areas as a future coral refuge.<br></h6>
+												<h6 class="tagline fulljustify">Coral diseases contribute to the rapid degradation of coral reefs on a global scale. Although widespread in tropical and subtropical reefs, disease outbreaks have not been described in warm temperate areas. Here, we report the outbreak of a new coral disease in a warm temperate marginal coral community in Japan. Outbreaks of the disease have been observed during the summer and autumn months since 2014. It affects the coral species <i>Porites heronensis</i> and was tentatively named "White Mat Syndrome" (WMS) as it consists of a white microbial mat dominated by <i>Thiothrix</i> sp., a sulfide oxidizing bacteria. Outbreaks followed high seasonal temperatures and were associated with the macroalga <i>Gelidium elegans</i>, which acts as a pathogen reservoir. With ocean warming and the anticipated increase in novel coral-algae interactions as some coral species shift poleward, WMS and emerging diseases could hinder the role of temperate areas as a future coral refuge.</h6>
 											</div>
 										</article>
-									<!-- Full Publication List -->		
-										<article>
-										<p>List of publications</p>
-											<div class="csl-bib-body" style="line-height: 1.35; margin-left: 2em; text-indent:-2em;">
-												<h6>
-												  <div class="csl-entry">Agostini, S., Heitzman, J., Iijima, L., Mitushasi, G., Spatafora, D., Wada, S., Harvey, B.P., Kurihara, H., 2024. Turf algae drives coral bioerosion under high CO2 (preprint). In Review. <a href="https://doi.org/10.21203/rs.3.rs-3779657/v1">https://doi.org/10.21203/rs.3.rs-3779657/v1</a></div>
-												  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=report&amp;rft.btitle=Turf%20algae%20drives%20coral%20bioerosion%20under%20high%20CO2&amp;rft.aufirst=Sylvain&amp;rft.aulast=Agostini&amp;rft.au=Sylvain%20Agostini&amp;rft.au=Joshua%20Heitzman&amp;rft.au=Layla%20Iijima&amp;rft.au=Guinther%20Mitushasi&amp;rft.au=Davide%20Spatafora&amp;rft.au=Shigeki%20Wada&amp;rft.au=Ben%20P.%20Harvey&amp;rft.au=Haruko%20Kurihara&amp;rft.date=2024-01-25"></span>
-													<br>
-												  <div class="csl-entry">Agostini, S., Houlbrèque, F., Biscéré, T., Harvey, B.P., Heitzman, J.M., Takimoto, R., Yamazaki, W., Milazzo, M., Rodolfo-Metalpa, R., 2021. Greater Mitochondrial Energy Production Provides Resistance to Ocean Acidification in “Winning” Hermatypic Corals. Frontiers In Marine Science 7. <a href="https://doi.org/10.3389/fmars.2020.600836">https://doi.org/10.3389/fmars.2020.600836</a></div>
-												  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.3389%2Ffmars.2020.600836&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Greater%20Mitochondrial%20Energy%20Production%20Provides%20Resistance%20to%20Ocean%20Acidification%20in%20%E2%80%9CWinning%E2%80%9D%20Hermatypic%20Corals&amp;rft.jtitle=Frontiers%20In%20Marine%20Science&amp;rft.volume=7&amp;rft.issue=600836&amp;rft.aufirst=Sylvain&amp;rft.aulast=Agostini&amp;rft.au=Sylvain%20Agostini&amp;rft.au=Fanny%20Houlbr%C3%A8que&amp;rft.au=Tom%20Bisc%C3%A9r%C3%A9&amp;rft.au=Ben%20P.%20Harvey&amp;rft.au=Joshua%20M.%20Heitzman&amp;rft.au=Risa%20Takimoto&amp;rft.au=Wataru%20Yamazaki&amp;rft.au=Marco%20Milazzo&amp;rft.au=Riccardo%20Rodolfo-Metalpa&amp;rft.date=2021-01-01&amp;rft.issn=2296-7745&amp;rft.language=en"></span>
-													<br>
-												  <div class="csl-entry">Heitzman, J.M., Caputo, N., Yang, S.-Y., Harvey, B.P., Agostini, S., 2022. Recurrent disease outbreak in a warm temperate marginal coral community. Marine Pollution Bulletin 182, 113954. <a href="https://doi.org/10.1016/j.marpolbul.2022.113954">https://doi.org/10.1016/j.marpolbul.2022.113954</a></div>
-												  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1016%2Fj.marpolbul.2022.113954&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Recurrent%20disease%20outbreak%20in%20a%20warm%20temperate%20marginal%20coral%20community&amp;rft.jtitle=Marine%20Pollution%20Bulletin&amp;rft.stitle=Marine%20Pollution%20Bulletin&amp;rft.volume=182&amp;rft.aufirst=Joshua%20M.&amp;rft.aulast=Heitzman&amp;rft.au=Joshua%20M.%20Heitzman&amp;rft.au=Nicol%C3%A8%20Caputo&amp;rft.au=Sung-Yin%20Yang&amp;rft.au=Ben%20P.%20Harvey&amp;rft.au=Sylvain%20Agostini&amp;rft.date=2022-09-01&amp;rft.pages=113954&amp;rft.issn=0025-326X&amp;rft.language=en"></span>
-													<br>
-												  <div class="csl-entry">Heitzman, J.M., Mitushasi, G., Spatafora, D., Agostini, S., 2023. Seasonal coral-algae interactions drive White Mat Syndrome coral disease outbreaks. Science of The Total Environment 900, 166379. <a href="https://doi.org/10.1016/j.scitotenv.2023.166379">https://doi.org/10.1016/j.scitotenv.2023.166379</a></div>
-												  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1016%2Fj.scitotenv.2023.166379&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Seasonal%20coral-algae%20interactions%20drive%20White%20Mat%20Syndrome%20coral%20disease%20outbreaks&amp;rft.jtitle=Science%20of%20The%20Total%20Environment&amp;rft.stitle=Science%20of%20The%20Total%20Environment&amp;rft.volume=900&amp;rft.aufirst=Joshua%20M.&amp;rft.aulast=Heitzman&amp;rft.au=Joshua%20M.%20Heitzman&amp;rft.au=Guinther%20Mitushasi&amp;rft.au=Davide%20Spatafora&amp;rft.au=Sylvain%20Agostini&amp;rft.date=2023-11-20&amp;rft.pages=166379&amp;rft.issn=0048-9697"></span>
-													<br>
-												
-												
-												</h6>
-											</div>
-										</article>
-    
-    
-      
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-      
-    
+									</div>
 
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#242e2b">
-
-    
+									<h4>All publications</h4>
+									<div class="pub-list" style="line-height: 1.35; margin-left: 2em; text-indent: -2em;">
+										<!-- TODO: confirm first author. Your CV lists "Brownridge M." for this study; the published version lists "Hart". -->
+										<div class="csl-entry">Hart, M., Connell, S., Mitchell, A., Harvey, B.P., Agostini, S., <b>Heitzman, J.M.</b>, Nagelkerken, I., 2026. Marine invertebrates and fishes exhibit inconsistent body size responses to ocean acidification. <i>Limnology and Oceanography</i> 71, e70421. <a href="https://doi.org/10.1002/lno.70421">https://doi.org/10.1002/lno.70421</a></div>
+										<div class="csl-entry"><b>Heitzman, J.M.</b>, Iijima, L., Mitushasi, G., Spatafora, D., Wada, S., Harvey, B.P., Kurihara, H., Agostini, S., 2024. Turf algae drives coral bioerosion under high CO<sub>2</sub>. Preprint (Research Square). <a href="https://doi.org/10.21203/rs.3.rs-3779657/v1">https://doi.org/10.21203/rs.3.rs-3779657/v1</a></div>
+										<div class="csl-entry"><b>Heitzman, J.M.</b>, 2024. Coral-algae interactions in the Anthropocene. Ph.D. thesis, University of Tsukuba. <a href="https://doi.org/10.15068/0002013012">https://doi.org/10.15068/0002013012</a></div>
+										<div class="csl-entry"><b>Heitzman, J.M.</b>, Mitushasi, G., Spatafora, D., Agostini, S., 2023. Seasonal coral-algae interactions drive White Mat Syndrome coral disease outbreaks. <i>Science of The Total Environment</i> 900, 166379. <a href="https://doi.org/10.1016/j.scitotenv.2023.166379">https://doi.org/10.1016/j.scitotenv.2023.166379</a></div>
+										<div class="csl-entry"><b>Heitzman, J.M.</b>, Caputo, N., Yang, S.-Y., Harvey, B.P., Agostini, S., 2022. Recurrent disease outbreak in a warm temperate marginal coral community. <i>Marine Pollution Bulletin</i> 182, 113954. <a href="https://doi.org/10.1016/j.marpolbul.2022.113954">https://doi.org/10.1016/j.marpolbul.2022.113954</a></div>
+										<div class="csl-entry">Agostini, S., Houlbrèque, F., Biscéré, T., Harvey, B.P., <b>Heitzman, J.M.</b>, Takimoto, R., Yamazaki, W., Milazzo, M., Rodolfo-Metalpa, R., 2021. Greater mitochondrial energy production provides resistance to ocean acidification in "winning" hermatypic corals. <i>Frontiers in Marine Science</i> 7, 600836. <a href="https://doi.org/10.3389/fmars.2020.600836">https://doi.org/10.3389/fmars.2020.600836</a></div>
 									</div>
 								</div>
 							</section>
 
-						<!-- Three - Skills and Experience -->
-							<!-- <section id="three">
+						<!-- Contact -->
+							<section id="contact">
 								<div class="container">
-								
-									<h3>Research Methods and Experience</h3>
-									<p>From the start of my undergraduate research to the end of my PhD, I conducted field monitoring (SCUBA) at least twice monthly, and am familiar with several field monitoring techniques. I have experience with assessing the physiology of corals and their symbiont to get calcification rates (buoyant weight, alkalinity anomaly), photosystem activity (dissolved oxygen, PAM), and other important physiological parameters (chl. content, protein content, zoox. density, etc.). I am also proficient with bacterial analysis (microbiome) from raw sample collection to analysis.</p>
+									<h3>Contact</h3>
+									<p>I'm always happy to hear from prospective collaborators and students.</p>
 									<ul class="feature-icons">
-										<li class="fa-regular fa-square">Field monitoring techniques (SCUBA)</li>
-										<li class="icon solid fa-vial">Coral physiological assessment</li>
-										<li class="icon solid fa-water">Environmental assessment methods</li>
-										<li class="icon solid fa-bacteria">Microbial community assessment</li>
-										<li class="icon solid fa-cube">Aquaria system construction and management</li>
-										<li class="icon solid fa-microscope">Confocal and SEM experience</li>
-										<li class="icon solid fa-syringe">Microsensor experience</li>
-										<li class="icon solid fa-flask">Mass spectrometry experience</li>
-										<li class="icon solid fa-flask">Cnidarian cell dissociation and culture</li>
+										<li class="icon solid fa-envelope"><a href="mailto:joheitzman@gmail.com">joheitzman@gmail.com</a></li>
+										<li class="icon solid fa-university"><a href="mailto:heitzman@hiroshima-u.ac.jp">heitzman@hiroshima-u.ac.jp</a></li>
+										<li class="icon brands fa-orcid"><a href="https://orcid.org/0000-0002-8275-5006">ORCID 0000-0002-8275-5006</a></li>
+										<li class="icon brands fa-researchgate"><a href="https://www.researchgate.net/profile/Joshua-Heitzman">ResearchGate</a></li>
 									</ul>
-									
-									<h3>Data Analysis</h3>
-									<p>I have mainly used R for all my statistical analysis and figure production. I also analyze bacteria data within R after piping it from QIIME2 or PICRUSt2. For photographs both <i>in situ</i> and <i>ex situ</i>, I use ImageJ for labelling and surface area measurements.</p>
-									<ul class="feature-icons">
-										<li class="icon solid fa-code">Statistical analysis using R</li>
-										<li class="icon solid fa-terminal">Bioinformatic pipeline(s) using QIIME2 and PICRUSt2</li>
-										<li class="icon solid fa-image">Image analysis and macro coding in ImageJ (FijiJ)</li>
-										<li class="icon solid fa-map">Basic QGIS figure production</li>
-									</ul>
-									
-							</section> -->
-
-						<!-- Five -->
-						<!--
-							<section id="five">
-								<div class="container">
-									<h3>Elements</h3>
-
-									<section>
-										<h4>Text</h4>
-										<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-										This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-										This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-										<hr />
-										<header>
-											<h4>Heading with a Subtitle</h4>
-											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-										</header>
-										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-										<header>
-											<h5>Heading with a Subtitle</h5>
-											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-										</header>
-										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-										<hr />
-										<h2>Heading Level 2</h2>
-										<h3>Heading Level 3</h3>
-										<h4>Heading Level 4</h4>
-										<h5>Heading Level 5</h5>
-										<h6>Heading Level 6</h6>
-										<hr />
-										<h5>Blockquote</h5>
-										<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-										<h5>Preformatted</h5>
-										<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-									</section>
-
-									<section>
-										<h4>Lists</h4>
-										<div class="row">
-											<div class="col-6 col-12-xsmall">
-												<h5>Unordered</h5>
-												<ul>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Sagittis adipiscing lorem eleifend.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ul>
-												<h5>Alternate</h5>
-												<ul class="alt">
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Sagittis adipiscing lorem eleifend.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ul>
-											</div>
-											<div class="col-6 col-12-xsmall">
-												<h5>Ordered</h5>
-												<ol>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Etiam vel felis at lorem sed viverra.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Etiam vel felis at lorem sed viverra.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ol>
-												<h5>Icons</h5>
-												<ul class="icons">
-													<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-													<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-													<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-													<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-													<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-													<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
-												</ul>
-											</div>
-										</div>
-										<h5>Actions</h5>
-										<ul class="actions">
-											<li><a href="#" class="button primary">Default</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt">Default</a></li>
-										</ul>
-										<ul class="actions small">
-											<li><a href="#" class="button primary small">Small</a></li>
-											<li><a href="#" class="button small">Small</a></li>
-											<li><a href="#" class="button alt small">Small</a></li>
-										</ul>
-										<div class="row">
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary">Default</a></li>
-													<li><a href="#" class="button">Default</a></li>
-													<li><a href="#" class="button alt">Default</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6 col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary small">Small</a></li>
-													<li><a href="#" class="button small">Small</a></li>
-													<li><a href="#" class="button alt small">Small</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary fit">Default</a></li>
-													<li><a href="#" class="button fit">Default</a></li>
-													<li><a href="#" class="button alt fit">Default</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary small fit">Small</a></li>
-													<li><a href="#" class="button small fit">Small</a></li>
-													<li><a href="#" class="button alt small fit">Small</a></li>
-												</ul>
-											</div>
-										</div>
-									</section>
-
-									<section>
-										<h4>Table</h4>
-										<h5>Default</h5>
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Price</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Item One</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Two</td>
-														<td>Vis ac commodo adipiscing arcu aliquet.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Three</td>
-														<td> Morbi faucibus arcu accumsan lorem.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Four</td>
-														<td>Vitae integer tempus condimentum.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Five</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														<td>100.00</td>
-													</tr>
-												</tfoot>
-											</table>
-										</div>
-
-										<h5>Alternate</h5>
-										<div class="table-wrapper">
-											<table class="alt">
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Price</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Item One</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Two</td>
-														<td>Vis ac commodo adipiscing arcu aliquet.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Three</td>
-														<td> Morbi faucibus arcu accumsan lorem.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Four</td>
-														<td>Vitae integer tempus condimentum.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Five</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														<td>100.00</td>
-													</tr>
-												</tfoot>
-											</table>
-										</div>
-									</section>
-
-									<section>
-										<h4>Buttons</h4>
-										<ul class="actions">
-											<li><a href="#" class="button primary">Primary</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt">Alternate</a></li>
-										</ul>
-										<ul class="actions">
-											<li><a href="#" class="button primary large">Large</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt small">Small</a></li>
-										</ul>
-										<ul class="actions fit">
-											<li><a href="#" class="button primary fit">Fit</a></li>
-											<li><a href="#" class="button fit">Fit</a></li>
-											<li><a href="#" class="button alt fit">Fit</a></li>
-										</ul>
-										<ul class="actions fit small">
-											<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-											<li><a href="#" class="button fit small">Fit + Small</a></li>
-											<li><a href="#" class="button alt fit small">Fit + Small</a></li>
-										</ul>
-										<ul class="actions">
-											<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-											<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-											<li><a href="#" class="button alt icon solid fa-check">Icon</a></li>
-										</ul>
-										<ul class="actions">
-											<li><span class="button primary disabled">Primary</span></li>
-											<li><span class="button disabled">Default</span></li>
-											<li><span class="button alt disabled">Alternate</span></li>
-										</ul>
-									</section>
-
-									<section>
-										<h4>Form</h4>
-										<form method="post" action="#">
-											<div class="row gtr-uniform">
-												<div class="col-6 col-12-xsmall">
-													<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-												</div>
-												<div class="col-6 col-12-xsmall">
-													<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-												</div>
-												<div class="col-12">
-													<select name="demo-category" id="demo-category">
-														<option value="">- Category -</option>
-														<option value="1">Manufacturing</option>
-														<option value="1">Shipping</option>
-														<option value="1">Administration</option>
-														<option value="1">Human Resources</option>
-													</select>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-													<label for="demo-priority-low">Low Priority</label>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-normal" name="demo-priority">
-													<label for="demo-priority-normal">Normal Priority</label>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-high" name="demo-priority">
-													<label for="demo-priority-high">High Priority</label>
-												</div>
-												<div class="col-6 col-12-medium">
-													<input type="checkbox" id="demo-copy" name="demo-copy">
-													<label for="demo-copy">Email me a copy of this message</label>
-												</div>
-												<div class="col-6 col-12-medium">
-													<input type="checkbox" id="demo-human" name="demo-human" checked>
-													<label for="demo-human">I am a human and not a robot</label>
-												</div>
-												<div class="col-12">
-													<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-												</div>
-												<div class="col-12">
-													<ul class="actions">
-														<li><input type="submit" value="Send Message" /></li>
-														<li><input type="reset" value="Reset" class="alt" /></li>
-													</ul>
-												</div>
-											</div>
-										</form>
-									</section>
-
-									<section>
-										<h4>Image</h4>
-										<h5>Fit</h5>
-										<span class="image fit"><img src="images/banner.jpg" alt="" /></span>
-										<div class="box alt">
-											<div class="row gtr-50 gtr-uniform">
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-											</div>
-										</div>
-										<h5>Left &amp; Right</h5>
-										<p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-										<p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-									</section>
-
 								</div>
 							</section>
-						-->
 
 					</div>
 
 				<!-- Footer -->
 					<section id="footer">
 						<div class="container">
-							<ul>
-								Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							<ul class="copyright">
+								<li>&copy; Joshua M. Heitzman</li>
+								<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
 					</section>
