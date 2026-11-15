@@ -16,7 +16,51 @@
 		<meta property="og:image" content="https://joheitzman.github.io/images/banner.jpg" />
 		<meta property="og:url" content="https://joheitzman.github.io/" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
 		<style>
+			/* Field sites map */
+			#sites-map { height: min(640px, 80vh); border-radius: 6px; margin: 0.5em 0 1.5em 0; z-index: 0; background: #b7d3e6; }
+			@media screen and (max-width: 736px) { #sites-map { height: 480px; } }
+			#sites-map .leaflet-control-attribution { font-size: 9px; max-width: 70%; }
+			.sites-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4em 1.5em; font-size: 0.9em; }
+			.sites-legend .button { margin-left: auto; }
+			.dot { display: inline-block; width: 0.8em; height: 0.8em; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,0.15); margin-right: 0.45em; vertical-align: -0.05em; }
+			.dot.tara { background: #00aaff; } .dot.other { background: #ff7a45; }
+			.sites-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(14em, 1fr)); gap: 0.25em 1em; }
+			.sites-list li { padding: 0; margin: 0; border: 0; }
+			.sites-list button { all: unset; cursor: pointer; display: block; padding: 0.3em 0; font-size: 0.9em; color: inherit; }
+			.sites-list button:hover, .sites-list button:focus-visible { color: #00aaff; }
+			.sites-list small { color: #999; }
+			.sites-credit { font-size: 0.75em; color: #999; margin-top: 0.5em; }
+			.site-tooltip { padding: 0; border: 0; border-radius: 6px; overflow: hidden; box-shadow: 0 6px 24px rgba(0,0,0,0.25); }
+			.site-card { width: 240px; font-family: inherit; line-height: 1.35; }
+			.site-card img { display: block; width: 240px; height: 160px; object-fit: cover; background: #ddd; }
+			.site-card strong, .site-card span, .site-card em { display: block; padding: 0 10px; white-space: normal; }
+			.site-card strong { padding-top: 8px; font-size: 14px; color: #333; }
+			.site-card span { font-size: 12px; color: #777; }
+			.site-card em { font-size: 11px; color: #00aaff; padding-bottom: 8px; font-style: normal; }
+			/* Slideshow */
+			body.sv-open { overflow: hidden; }
+			#site-viewer { position: fixed; inset: 0; z-index: 20000; background: rgba(10,16,22,0.92); display: flex; align-items: center; justify-content: center; padding: 1em; }
+			#site-viewer[hidden] { display: none; }
+			.sv-panel { width: min(1100px, 100%); max-height: 100%; display: flex; flex-direction: column; color: #eee; }
+			.sv-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1em; }
+			.sv-title { color: #fff; margin: 0; }
+			.sv-meta { margin: 0 0 0.5em 0; font-size: 0.85em; color: #aab; }
+			.sv-close { all: unset; cursor: pointer; font-size: 2.2em; line-height: 1; color: #fff; padding: 0 0.2em; }
+			.sv-stage { position: relative; display: flex; align-items: center; justify-content: center; min-height: 0; flex: 1 1 auto; }
+			.sv-image { max-width: 100%; max-height: 68vh; border-radius: 4px; transition: opacity 0.2s; }
+			.sv-image.loading { opacity: 0.35; }
+			.sv-prev, .sv-next { all: unset; cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); font-size: 3em; line-height: 1; color: #fff; background: rgba(0,0,0,0.35); width: 1.1em; height: 1.4em; text-align: center; border-radius: 4px; }
+			.sv-prev { left: 0.1em; } .sv-next { right: 0.1em; }
+			.sv-prev:hover, .sv-next:hover, .sv-close:hover { color: #00aaff; }
+			.sv-foot { display: flex; justify-content: space-between; gap: 1em; font-size: 0.85em; color: #ccd; margin: 0.6em 0; }
+			.sv-counter { white-space: nowrap; color: #889; }
+			.sv-strip { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; }
+			.sv-strip button { all: unset; cursor: pointer; flex: 0 0 auto; opacity: 0.5; border: 2px solid transparent; border-radius: 3px; }
+			.sv-strip button.active, .sv-strip button:hover { opacity: 1; border-color: #00aaff; }
+			.sv-strip img { display: block; width: 84px; height: 56px; object-fit: cover; }
+
 			/* Small additions on top of the HTML5 UP theme */
 			.timeline li { padding-top: 0.6em !important; }
 			.timeline .when { float: right; color: #888; font-size: 0.9em; margin-left: 1em; }
@@ -46,6 +90,7 @@
 					<ul>
 						<li><a href="#about" class="active">About</a></li>
 						<li><a href="#research">Research</a></li>
+						<li><a href="#sites">Field Sites</a></li>
 						<li><a href="#lab">Lab</a></li>
 						<li><a href="#cv"><i>Curriculum Vitae</i> (CV)</a></li>
 						<li><a href="#publications">Publications</a></li>
@@ -81,7 +126,7 @@
 									</header>
 									<!-- TODO: update with your current position once your CV is finalised. -->
 									<p>I am a marine ecologist interested in how environmental change, especially ocean acidification and ocean warming, reshapes biological interactions in coastal ecosystems, and what those shifts mean for corals, algae and the carbon these ecosystems store.</p>
-									<p>I am an Assistant Professor at the <b>Takehara Fisheries Research Station, Seto Inland Sea Carbon-neutral Research Center, Hiroshima University</b>. Before this I was a JSPS Postdoctoral Fellow and post-doctoral researcher at the same center (Prof. Shigeki Wada), studying how ocean acidification affects the carbon sequestration capacity (blue carbon) of coastal ecosystems. As part of this work I took part in the 2025 TARA-JAMBIO Blue Carbon expedition, surveying coastal algae across temperate Japan <a href="https://jp.fondationtaraocean.org/expedition/tara-jambio-bluecarbon/">(read about it here)</a>.</p>
+									<p>I am an Assistant Professor at the <b>Takehara Fisheries Research Station, Seto Inland Sea Carbon-neutral Research Center, Hiroshima University</b>. Before this I was a post-doctoral researcher and then a JSPS Postdoctoral Fellow at the same center (Prof. Shigeki Wada), studying how ocean acidification affects the carbon sequestration capacity (blue carbon) of coastal ecosystems. As part of this work I took part in the 2025 TARA-JAMBIO Blue Carbon expedition, surveying coastal algae across temperate Japan <a href="https://jp.fondationtaraocean.org/expedition/tara-jambio-bluecarbon/">(read about it here)</a>.</p>
 									<p>I received my Ph.D. from the University of Tsukuba (Shimoda Marine Research Center) under Dr. Sylvain Agostini, studying coral-algae interactions in the Anthropocene, and was a post-doctoral researcher at Arizona State University (Dr. Liza Roger), working on nitro-oxidative stress in the coral-dinoflagellate symbiosis.</p>
 								</div>
 							</section>
@@ -139,12 +184,30 @@
 										<li class="icon solid fa-flask">Seawater chemistry (TA, pH, POC, FDOM, TSS)</li>
 										<li class="icon solid fa-bacteria">Microbial communities (16S, QIIME2)</li>
 										<li class="icon solid fa-microscope">Confocal and SEM microscopy</li>
+										<li class="icon solid fa-bacterium">Cnidarian cell dissociation and culture</li>
 										<li class="icon solid fa-syringe">Microsensors (Unisense)</li>
 										<li class="icon solid fa-atom">Stable isotope mass spectrometry (EA-IRMS)</li>
 										<li class="icon solid fa-cube">Experimental aquarium systems</li>
 										<li class="icon solid fa-code">Statistics and figures in R</li>
+										<li class="icon solid fa-image">Image analysis in ImageJ/Fiji and mapping in QGIS</li>
 										<li class="icon solid fa-language">Bilingual: English and Japanese</li>
 									</ul>
+								</div>
+							</section>
+
+						<!-- Field sites -->
+							<section id="sites">
+								<div class="container">
+									<h3>Field Sites</h3>
+									<p>From the subtropical reefs of Okinawa to kelp and seagrass beds in Hokkaido, these are the places I have surveyed. Hover over a site for a preview, and click it to see photos.</p>
+									<div class="sites-legend">
+										<span><span class="dot tara"></span>TARA-JAMBIO Blue Carbon surveys</span>
+										<span><span class="dot other"></span>Other research sites</span>
+										<button type="button" id="sites-reset" class="button small">Reset view</button>
+									</div>
+									<div id="sites-map" role="region" aria-label="Map of field sites in Japan"></div>
+									<ul id="sites-list" class="sites-list"></ul>
+									<p class="sites-credit">Drone mosaics are stitched from survey flights; their surroundings use aerial imagery from the Geospatial Information Authority of Japan (<a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院 地理院タイル</a>).</p>
 								</div>
 							</section>
 
@@ -196,16 +259,15 @@
 							<section id="cv">
 								<div class="container">
 									<h3><i>Curriculum Vitae</i> (CV)</h3>
-									<!-- TODO: update the date and PDF link when your new CV is ready. -->
-									<p>The full CV (updated May 2025) is available as a PDF.</p>
+									<p>The full CV (updated November 2026) is available as a PDF.</p>
 									<ul class="actions">
-										<li><a href="./Updated_CV_2024-2025_w_photos.pdf" class="button primary icon solid fa-download">Download CV</a></li>
+										<li><a href="./CV_Heitzman_2026-11.pdf" class="button primary icon solid fa-download">Download CV</a></li>
 									</ul>
 
 									<h4>Positions</h4>
 									<ul class="alt timeline">
 										<li><span class="when">Jul. 2026 – present</span><b>Assistant Professor</b><span class="where">Takehara Fisheries Research Station, Seto Inland Sea Carbon-neutral Research Center, Hiroshima University, Japan</span></li>
-										<li><span class="when">Mar. 2025 – Jun. 2026</span><b>JSPS Postdoctoral Fellow</b><span class="where">Seto Inland Sea Carbon-neutral Research Center, Hiroshima University, Japan</span></li>
+										<li><span class="when">Apr. 2026 – Jun. 2026</span><b>JSPS Postdoctoral Fellow</b><span class="where">Seto Inland Sea Carbon-neutral Research Center, Hiroshima University, Japan</span></li>
 										<li><span class="when">May 2025 – Mar. 2026</span><b>Post-Doctoral Researcher</b><span class="where">Seto Inland Sea Carbon-neutral Research Center, Hiroshima University, Japan (PI: Prof. Shigeki Wada)</span></li>
 										<li><span class="when">Feb. 2025 – Mar. 2025</span><b>Researcher</b><span class="where">Shimoda Marine Research Center, University of Tsukuba, Japan (PI: Dr. Sylvain Agostini)</span></li>
 										<li><span class="when">Apr. 2024 – Nov. 2024</span><b>Post-Doctoral Researcher</b><span class="where">School of Molecular Sciences &amp; School of Ocean Futures, Arizona State University, USA (PI: Dr. Liza Roger)</span></li>
@@ -310,6 +372,26 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+		<!-- Field site slideshow -->
+			<div id="site-viewer" hidden role="dialog" aria-modal="true" aria-label="Site photos">
+				<div class="sv-panel">
+					<header class="sv-head">
+						<div><h4 class="sv-title"></h4><p class="sv-meta"></p></div>
+						<button type="button" class="sv-close" aria-label="Close">&times;</button>
+					</header>
+					<div class="sv-stage">
+						<button type="button" class="sv-prev" aria-label="Previous photo">&#8249;</button>
+						<img class="sv-image" alt="" />
+						<button type="button" class="sv-next" aria-label="Next photo">&#8250;</button>
+					</div>
+					<p class="sv-foot"><span class="sv-caption"></span><span class="sv-counter"></span></p>
+					<div class="sv-strip"></div>
+				</div>
+			</div>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+			<script src="assets/js/sites-data.js"></script>
+			<script src="assets/js/sites.js"></script>
 
 	</body>
 </html>
