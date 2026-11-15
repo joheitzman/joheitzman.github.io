@@ -18,7 +18,6 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
 			/* Small additions on top of the HTML5 UP theme */
-			.placeholder { background: #fff8e1; border-left: 4px solid #f2b705; padding: 0.75em 1em; margin-bottom: 1.5em; }
 			.timeline li { padding-top: 0.6em !important; }
 			.timeline .when { float: right; color: #888; font-size: 0.9em; margin-left: 1em; }
 			.timeline .where { display: block; font-size: 0.9em; color: #777; }
@@ -26,6 +25,7 @@
 			.tagline.fulljustify:after { display: none; }
 			.pub-list .csl-entry { margin-bottom: 0.9em; }
 			.team article { display: flex; align-items: flex-start; gap: 1.5em; margin-bottom: 2em; }
+			.team .image.avatar { flex: 0 0 7em; width: 7em; margin: 0; }
 			.team .image.avatar img { width: 7em; height: 7em; border-radius: 100%; object-fit: cover; }
 			@media screen and (max-width: 480px) { .team article { flex-direction: column; } .timeline .when { float: none; display: block; margin-left: 0; } }
 		</style>
@@ -139,12 +139,16 @@
 							<section id="lab">
 								<div class="container">
 									<h3>Lab</h3>
-									<!-- TODO: replace this whole section with your lab's details. Delete the .placeholder box when done. -->
-									<div class="placeholder">
-										<p><b>Placeholder:</b> send me your lab name, institution, a short mission statement, and current members, and I'll fill this in.</p>
-									</div>
-									<p><b>[Lab name]</b>, [Department / Center], [Institution]</p>
-									<p>[One or two paragraphs introducing the lab: the big question you are asking, the systems you work in, and what makes your approach distinctive.]</p>
+									<!-- Add your lab name here once you've chosen one, e.g. <p><b>[Lab name]</b>, [Department], [Institution]</p> -->
+									<p>We study how a changing ocean rewires the interactions that hold coastal ecosystems together. As seawater warms and absorbs more CO<sub>2</sub>, the balance between corals, algae and microbes shifts, with knock-on effects for reef growth, disease and the carbon these habitats store. We combine fieldwork, natural CO<sub>2</sub> seeps and controlled experiments to work out the mechanisms behind these shifts and what they mean for the future of coastal seas.</p>
+
+									<h4>Focus areas</h4>
+									<ul class="feature-icons">
+										<li class="icon solid fa-water">Coral-algae competition in a high-CO<sub>2</sub> ocean</li>
+										<li class="icon solid fa-bacteria">Emerging coral diseases in temperate and marginal reefs</li>
+										<li class="icon solid fa-leaf">Blue carbon: how acidification changes coastal carbon storage</li>
+										<li class="icon solid fa-microscope">Stress physiology of the coral-algal symbiosis</li>
+									</ul>
 
 									<h4>Team</h4>
 									<div class="team">
@@ -152,14 +156,14 @@
 											<span class="image avatar"><img src="images/avatar.jpg" alt="Joshua M. Heitzman" /></span>
 											<div>
 												<h5>Joshua M. Heitzman, Ph.D.</h5>
-												<p>[Role, e.g. Principal Investigator]<br />[Short bio or research focus]</p>
+												<p>Lab lead<br />Marine ecologist working on coral-algae interactions, coral disease and blue carbon under ocean acidification.</p>
 											</div>
 										</article>
 										<!-- Copy the <article> block above for each lab member. -->
 									</div>
 
 									<h4>Join the lab</h4>
-									<p>[Are you recruiting students, post-docs or interns? Describe openings, or invite prospective members to get in touch via the <a href="#contact">contact</a> section.]</p>
+									<p>Students and researchers interested in coral ecology, ocean acidification or blue carbon are welcome to get in touch. Please see the <a href="#contact">contact</a> section.</p>
 								</div>
 							</section>
 
@@ -231,7 +235,6 @@
 
 									<h4>All publications</h4>
 									<div class="pub-list" style="line-height: 1.35; margin-left: 2em; text-indent: -2em;">
-										<!-- TODO: confirm first author. Your CV lists "Brownridge M." for this study; the published version lists "Hart". -->
 										<div class="csl-entry">Hart, M., Connell, S., Mitchell, A., Harvey, B.P., Agostini, S., <b>Heitzman, J.M.</b>, Nagelkerken, I., 2026. Marine invertebrates and fishes exhibit inconsistent body size responses to ocean acidification. <i>Limnology and Oceanography</i> 71, e70421. <a href="https://doi.org/10.1002/lno.70421">https://doi.org/10.1002/lno.70421</a></div>
 										<div class="csl-entry"><b>Heitzman, J.M.</b>, Iijima, L., Mitushasi, G., Spatafora, D., Wada, S., Harvey, B.P., Kurihara, H., Agostini, S., 2024. Turf algae drives coral bioerosion under high CO<sub>2</sub>. Preprint (Research Square). <a href="https://doi.org/10.21203/rs.3.rs-3779657/v1">https://doi.org/10.21203/rs.3.rs-3779657/v1</a></div>
 										<div class="csl-entry"><b>Heitzman, J.M.</b>, 2024. Coral-algae interactions in the Anthropocene. Ph.D. thesis, University of Tsukuba. <a href="https://doi.org/10.15068/0002013012">https://doi.org/10.15068/0002013012</a></div>
