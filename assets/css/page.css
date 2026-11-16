@@ -1,0 +1,78 @@
+/* Page components: field-site map, slideshow, research figures, gallery, lab. Loaded after main.css, before refresh.css. */
+/* Field sites map */
+#sites-map { height: min(640px, 80vh); border-radius: 6px; margin: 0.5em 0 1.5em 0; z-index: 0; background: #e4e4e4; }
+#sites-map path.leaflet-interactive:focus { outline: none; }
+#sites-map path.leaflet-interactive:focus-visible { stroke: #222; stroke-width: 3; }
+@media screen and (max-width: 736px) { #sites-map { height: 480px; } }
+#sites-map .leaflet-control-attribution { font-size: 9px; max-width: 70%; }
+.sites-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4em 1.5em; font-size: 0.9em; }
+.sites-legend .button { margin-left: auto; }
+.dot { display: inline-block; width: 0.8em; height: 0.8em; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,0.15); margin-right: 0.45em; vertical-align: -0.05em; }
+.dot.tara { background: #00aaff; } .dot.other { background: #ff7a45; }
+.sites-credit { font-size: 0.75em; color: #999; margin-top: 0.5em; }
+.site-tooltip { padding: 0; border: 0; border-radius: 6px; overflow: hidden; box-shadow: 0 6px 24px rgba(0,0,0,0.25); }
+.site-card { width: 240px; font-family: inherit; line-height: 1.35; }
+.site-card img { display: block; width: 240px; height: 160px; object-fit: cover; background: #ddd; }
+.site-card strong, .site-card span, .site-card em { display: block; padding: 0 10px; white-space: normal; }
+.site-card strong { padding-top: 8px; font-size: 14px; color: #333; }
+.site-card span { font-size: 12px; color: #777; }
+.site-card em { font-size: 11px; color: #00aaff; padding-bottom: 8px; font-style: normal; }
+/* Slideshow */
+body.sv-open { overflow: hidden; }
+#site-viewer { position: fixed; inset: 0; z-index: 20000; background: rgba(10,16,22,0.92); display: flex; align-items: center; justify-content: center; padding: 1em; }
+#site-viewer[hidden] { display: none; }
+.sv-panel { width: min(1100px, 100%); max-height: 100%; display: flex; flex-direction: column; color: #eee; }
+.sv-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1em; }
+.sv-title { color: #fff; margin: 0; }
+.sv-meta { margin: 0 0 0.5em 0; font-size: 0.85em; color: #aab; }
+.sv-close { all: unset; cursor: pointer; font-size: 2.2em; line-height: 1; color: #fff; padding: 0 0.2em; }
+.sv-stage { position: relative; display: flex; align-items: center; justify-content: center; min-height: 0; flex: 1 1 auto; }
+.sv-image { max-width: 100%; max-height: 68vh; border-radius: 4px; transition: opacity 0.2s; }
+.sv-image.loading { opacity: 0.35; }
+.sv-prev, .sv-next { all: unset; cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); font-size: 3em; line-height: 1; color: #fff; background: rgba(0,0,0,0.35); width: 1.1em; height: 1.4em; text-align: center; border-radius: 4px; }
+.sv-prev { left: 0.1em; } .sv-next { right: 0.1em; }
+.sv-prev:hover, .sv-next:hover, .sv-close:hover { color: #00aaff; }
+.sv-foot { display: flex; justify-content: space-between; gap: 1em; font-size: 0.85em; color: #ccd; margin: 0.6em 0; }
+.sv-counter { white-space: nowrap; color: #889; }
+.sv-strip { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; }
+.sv-strip button { all: unset; cursor: pointer; flex: 0 0 auto; opacity: 0.5; border: 2px solid transparent; border-radius: 3px; }
+.sv-strip button.active, .sv-strip button:hover { opacity: 1; border-color: #00aaff; }
+.sv-strip img { display: block; width: 84px; height: 56px; object-fit: cover; }
+
+/* Small additions on top of the HTML5 UP theme */
+.timeline li { padding-top: 0.6em !important; }
+.timeline .when { float: right; color: #888; font-size: 0.9em; margin-left: 1em; }
+.timeline .where { display: block; font-size: 0.9em; color: #777; }
+.tagline { overflow: hidden; }
+.tagline.fulljustify:after { display: none; }
+.pub-list .csl-entry { margin-bottom: 0.9em; }
+/* Research & publications */
+.fig { margin: 1.5em 0 2.5em 0; }
+.fig img, .paper-fig img { display: block; width: 100%; height: auto; border-radius: 6px; background: #fff; }
+.fig img { border: 1px solid #eee; }
+.fig figcaption { font-size: 0.85em; color: #888; margin-top: 0.6em; line-height: 1.5; }
+.paper { margin: 0 0 2.5em 0; padding-bottom: 2.5em; border-bottom: solid 1px #eee; }
+.paper-fig { display: block; border: 1px solid #eee; border-radius: 6px; margin-bottom: 1.2em; transition: box-shadow 0.2s; }
+@media screen and (min-width: 981px) {
+	.paper { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 2em; align-items: start; }
+	.paper-fig { margin-bottom: 0; position: sticky; top: 1.5em; }
+}
+.paper-fig:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.12); }
+.paper h4 { margin-bottom: 0.2em; }
+.paper-meta { font-size: 0.85em; color: #00aaff; margin-bottom: 0.8em; letter-spacing: 0.02em; }
+.paper-cite { font-size: 0.85em; color: #777; margin-bottom: 0; }
+.paper details { margin: -0.6em 0 1em 0; font-size: 0.9em; }
+.paper details summary { cursor: pointer; color: #00aaff; font-weight: 600; }
+.paper details p { margin: 0.6em 0 0 0; color: #666; text-align: justify; }
+.h-note { font-weight: normal; font-size: 0.75em; color: #999; margin-left: 0.4em; white-space: nowrap; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(11em, 1fr)); gap: 0.75em; margin: 1em 0 2.5em 0; }
+.gallery figure { margin: 0; }
+.gallery img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; }
+.gallery figcaption { font-size: 0.78em; color: #888; margin-top: 0.35em; line-height: 1.35; }
+.approach { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2em; margin-bottom: 1em; }
+.approach h5 .icon { color: #00aaff; margin-right: 0.35em; }
+@media screen and (max-width: 736px) { .approach { grid-template-columns: 1fr; } }
+.team article { display: flex; align-items: flex-start; gap: 1.5em; margin-bottom: 2em; }
+.team .image.avatar { flex: 0 0 7em; width: 7em; margin: 0; }
+.team .image.avatar img { width: 7em; height: 7em; border-radius: 100%; object-fit: cover; }
+@media screen and (max-width: 480px) { .team article { flex-direction: column; } .timeline .when { float: none; display: block; margin-left: 0; } }
