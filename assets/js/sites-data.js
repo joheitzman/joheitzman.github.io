@@ -19,6 +19,16 @@ window.FIELD_SITES = [
 				"aerial": true
 			},
 			{
+				"caption": "Oshoro Marine Station, Hokkaido University"
+			},
+			{
+				"caption": "Sunset over Oshoro Bay"
+			},
+			{
+				"caption": "Diver beside a red algal wall",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
 				"caption": "Kelp and seaweed bed",
 				"credit": "Takeru Ito"
 			},
@@ -28,10 +38,6 @@ window.FIELD_SITES = [
 			},
 			{
 				"caption": "Sea star on coralline rock",
-				"credit": "Joshua M. Heitzman"
-			},
-			{
-				"caption": "Diver beside a red algal wall",
 				"credit": "Joshua M. Heitzman"
 			},
 			{
@@ -85,21 +91,30 @@ window.FIELD_SITES = [
 				"caption": "Island in Mutsu Bay"
 			},
 			{
-				"caption": "Seagrass reaching for the light",
-				"credit": "Manabu Ooue"
-			},
-			{
-				"caption": "Seagrass meadow"
-			},
-			{
-				"caption": "Divers sampling seagrass",
-				"credit": "Manabu Ooue"
-			},
-			{
 				"caption": "Cliffs of a small island in Mutsu Bay"
 			},
 			{
 				"caption": "Sea stack along the coast"
+			},
+			{
+				"caption": "Diver in the eelgrass meadow",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Looking up through the eelgrass",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Eelgrass blades",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Eelgrass meadow in the light",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Sea urchin on a barnacle-covered rock",
+				"credit": "Joshua M. Heitzman"
 			}
 		]
 	},
@@ -116,11 +131,11 @@ window.FIELD_SITES = [
 				"caption": "The Sanriku ria coast"
 			},
 			{
-				"caption": "Islands off Onagawa"
-			},
-			{
 				"caption": "Drone mosaic of the survey cove (surroundings: GSI aerial imagery)",
 				"aerial": true
+			},
+			{
+				"caption": "Islands off Onagawa"
 			},
 			{
 				"caption": "Forested headland from the boat",
@@ -131,12 +146,12 @@ window.FIELD_SITES = [
 				"credit": "Joshua M. Heitzman"
 			},
 			{
-				"caption": "Coralline algae and invertebrates",
-				"credit": "Takeru Ito"
-			},
-			{
 				"caption": "Rocky reef just below the surface",
 				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Coralline algae and invertebrates",
+				"credit": "Takeru Ito"
 			},
 			{
 				"caption": "Sea cucumber among kelp",
@@ -158,6 +173,10 @@ window.FIELD_SITES = [
 				"credit": "Saho Shibata"
 			},
 			{
+				"caption": "Drone mosaic of the survey cove (surroundings: GSI aerial imagery)",
+				"aerial": true
+			},
+			{
 				"caption": "Fishing harbour below the hills",
 				"credit": "Saho Shibata"
 			},
@@ -166,16 +185,11 @@ window.FIELD_SITES = [
 				"credit": "Saho Shibata"
 			},
 			{
-				"caption": "Sampling seawater from the boat",
+				"caption": "Evening light on the rocky shore",
 				"credit": "Saho Shibata"
 			},
 			{
-				"caption": "Drone mosaic of the survey cove (surroundings: GSI aerial imagery)",
-				"aerial": true
-			},
-			{
-				"caption": "Sea arch on the Sado coast",
-				"credit": "Saho Shibata"
+				"caption": "Diver surveying the reef"
 			},
 			{
 				"caption": "Sargassum bed in a survey quadrat"
@@ -184,11 +198,19 @@ window.FIELD_SITES = [
 				"caption": "Seaweed bed"
 			},
 			{
-				"caption": "Diver surveying the reef"
+				"caption": "Nudibranch on the seaweed"
 			},
 			{
-				"caption": "Evening light on the rocky shore",
-				"credit": "Saho Shibata"
+				"caption": "Nudibranch on red coralline rock"
+			},
+			{
+				"caption": "Anemone in a rocky crevice"
+			},
+			{
+				"caption": "Rocky reef in the shallows"
+			},
+			{
+				"caption": "Seaweed and yellow sponges"
 			}
 		]
 	},
@@ -218,9 +240,6 @@ window.FIELD_SITES = [
 				"credit": "Itaru Takaku"
 			},
 			{
-				"caption": "Anemone in a crevice"
-			},
-			{
 				"caption": "Clear water in a sheltered bay",
 				"credit": "Itaru Takaku"
 			},
@@ -231,6 +250,9 @@ window.FIELD_SITES = [
 			{
 				"caption": "Pine-topped islet in the morning haze",
 				"credit": "Itaru Takaku"
+			},
+			{
+				"caption": "Anemone in a crevice"
 			},
 			{
 				"caption": "Long-spined sea urchin"
@@ -313,16 +335,20 @@ window.FIELD_SITES = [
 		"tara": true,
 		"photos": [
 			{
-				"caption": "Nabeta Bay, home of the Shimoda Marine Research Center",
-				"credit": "Joshua M. Heitzman"
-			},
-			{
 				"caption": "Sunrise over Shimoda Bay",
 				"credit": "Joshua M. Heitzman"
 			},
 			{
 				"caption": "Drone mosaic of the survey site (surroundings: GSI aerial imagery)",
 				"aerial": true
+			},
+			{
+				"caption": "Nabeta Bay, home of the Shimoda Marine Research Center",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Diver crossing a sand channel",
+				"credit": "Joshua M. Heitzman"
 			},
 			{
 				"caption": "Stingray over the kelp bed",
@@ -347,10 +373,6 @@ window.FIELD_SITES = [
 			{
 				"caption": "Camouflaged scorpionfish on the gravel",
 				"credit": "Joshua M. Heitzman"
-			},
-			{
-				"caption": "Diver crossing a sand channel",
-				"credit": "Joshua M. Heitzman"
 			}
 		]
 	},
@@ -368,18 +390,6 @@ window.FIELD_SITES = [
 				"credit": "Joshua M. Heitzman"
 			},
 			{
-				"caption": "Table coral",
-				"credit": "Joshua M. Heitzman"
-			},
-			{
-				"caption": "Branching corals",
-				"credit": "Joshua M. Heitzman"
-			},
-			{
-				"caption": "Red algae on the reef",
-				"credit": "Joshua M. Heitzman"
-			},
-			{
 				"caption": "Divers at the seep site",
 				"credit": "Joshua M. Heitzman"
 			},
@@ -393,6 +403,18 @@ window.FIELD_SITES = [
 			},
 			{
 				"caption": "Table corals across the reef",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Table coral",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Branching corals",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Red algae on the reef",
 				"credit": "Joshua M. Heitzman"
 			},
 			{
@@ -458,6 +480,13 @@ window.FIELD_SITES = [
 				"credit": "Joshua M. Heitzman"
 			},
 			{
+				"caption": "Drone mosaic of the seagrass survey area (surroundings: GSI aerial imagery)",
+				"aerial": true
+			},
+			{
+				"caption": "Research boat at the Takehara Fisheries Research Station"
+			},
+			{
 				"caption": "Islands of the Seto Inland Sea"
 			},
 			{
@@ -465,19 +494,15 @@ window.FIELD_SITES = [
 				"credit": "Joshua M. Heitzman"
 			},
 			{
-				"caption": "Drone mosaic of the seagrass survey area (surroundings: GSI aerial imagery)",
-				"aerial": true
-			},
-			{
-				"caption": "Seagrass meadow",
-				"credit": "Wataru Sano"
-			},
-			{
 				"caption": "Sandy shore framed by coastal trees",
 				"credit": "Joshua M. Heitzman"
 			},
 			{
 				"caption": "Sheltered cove near Takehara"
+			},
+			{
+				"caption": "Seagrass meadow",
+				"credit": "Wataru Sano"
 			}
 		]
 	},
@@ -494,11 +519,14 @@ window.FIELD_SITES = [
 				"caption": "Island and breakwater at Usa"
 			},
 			{
-				"caption": "Reef flat and jetty"
-			},
-			{
 				"caption": "Drone mosaic of the survey reef (surroundings: GSI aerial imagery)",
 				"aerial": true
+			},
+			{
+				"caption": "Usa Marine Biological Institute, Kochi University"
+			},
+			{
+				"caption": "Reef flat and jetty"
 			},
 			{
 				"caption": "Niyodo River, upstream of the bay"
@@ -569,11 +597,20 @@ window.FIELD_SITES = [
 				"caption": "Beach and wooded headland"
 			},
 			{
+				"caption": "Drone orthomosaic of the survey reef (surroundings: GSI aerial imagery)",
+				"aerial": true
+			},
+			{
+				"caption": "Research vessel of the Amakusa Marine Biological Laboratory, Kyushu University"
+			},
+			{
 				"caption": "Fishing village below green hills"
 			},
 			{
-				"caption": "Drone orthomosaic of the survey reef (surroundings: GSI aerial imagery)",
-				"aerial": true
+				"caption": "Algae-covered boulders"
+			},
+			{
+				"caption": "Algal forest with fish"
 			},
 			{
 				"caption": "Nudibranch"
@@ -583,12 +620,6 @@ window.FIELD_SITES = [
 			},
 			{
 				"caption": "Branching sponge"
-			},
-			{
-				"caption": "Algal forest with fish"
-			},
-			{
-				"caption": "Algae-covered boulders"
 			}
 		]
 	},
@@ -602,7 +633,11 @@ window.FIELD_SITES = [
 		"tara": true,
 		"photos": [
 			{
-				"caption": "Survey boat on Omura Bay",
+				"caption": "Omura Bay at water level",
+				"credit": "Manabu Ooue"
+			},
+			{
+				"caption": "Diver sampling eelgrass",
 				"credit": "Manabu Ooue"
 			},
 			{
@@ -618,16 +653,12 @@ window.FIELD_SITES = [
 				"credit": "Joshua M. Heitzman"
 			},
 			{
-				"caption": "Diver sampling eelgrass",
+				"caption": "Diver sampling in the meadow",
 				"credit": "Manabu Ooue"
 			},
 			{
 				"caption": "Sea urchin in the eelgrass",
 				"credit": "Joshua M. Heitzman"
-			},
-			{
-				"caption": "Diver sampling in the meadow",
-				"credit": "Manabu Ooue"
 			},
 			{
 				"caption": "Burrow in the eelgrass bed",
@@ -649,6 +680,18 @@ window.FIELD_SITES = [
 				"credit": "Joshua M. Heitzman"
 			},
 			{
+				"caption": "White-sand beach under summer clouds",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Sesoko Bridge",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Sunset over the East China Sea",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
 				"caption": "Table corals on the reef flat",
 				"credit": "Joshua M. Heitzman"
 			},
@@ -658,18 +701,6 @@ window.FIELD_SITES = [
 			},
 			{
 				"caption": "Brain coral",
-				"credit": "Joshua M. Heitzman"
-			},
-			{
-				"caption": "Sesoko Bridge",
-				"credit": "Joshua M. Heitzman"
-			},
-			{
-				"caption": "White-sand beach under summer clouds",
-				"credit": "Joshua M. Heitzman"
-			},
-			{
-				"caption": "Sunset over the East China Sea",
 				"credit": "Joshua M. Heitzman"
 			},
 			{
@@ -692,11 +723,15 @@ window.FIELD_SITES = [
 				"credit": "Joshua M. Heitzman"
 			},
 			{
-				"caption": "Volcanic coastline",
+				"caption": "Evening light on the slopes of Iodake",
 				"credit": "Joshua M. Heitzman"
 			},
 			{
-				"caption": "Cliffs above the dive site, Satsuma Iwo-jima",
+				"caption": "Sea cliffs of Satsuma Iwo-jima",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Volcanic coastline",
 				"credit": "Joshua M. Heitzman"
 			},
 			{
@@ -704,27 +739,55 @@ window.FIELD_SITES = [
 				"credit": "Joshua M. Heitzman"
 			},
 			{
+				"caption": "Feral peafowl in the island forest",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Island cattle grazing above the sea",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
 				"caption": "Diver descending through blue water",
 				"credit": "Joshua M. Heitzman"
 			},
 			{
-				"caption": "Sea fan in a survey quadrat",
+				"caption": "Reef slope with table coral",
 				"credit": "Joshua M. Heitzman"
 			},
 			{
-				"caption": "Coral colony on the reef",
+				"caption": "Moorish idols along the reef wall",
 				"credit": "Joshua M. Heitzman"
 			},
 			{
-				"caption": "Coral on a volcanic boulder",
+				"caption": "Orange cup corals",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Branching Pocillopora coral",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Pink branching coral up close",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Encrusting corals on a volcanic boulder",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Green coral colony among red algae",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "Encrusting coral",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
+				"caption": "School of fish over the rocks",
 				"credit": "Joshua M. Heitzman"
 			},
 			{
 				"caption": "Sea snake on the reef",
-				"credit": "Joshua M. Heitzman"
-			},
-			{
-				"caption": "Reef fish",
 				"credit": "Joshua M. Heitzman"
 			}
 		]
@@ -743,6 +806,10 @@ window.FIELD_SITES = [
 				"credit": "Joshua M. Heitzman"
 			},
 			{
+				"caption": "Diver over a kelp bed",
+				"credit": "Joshua M. Heitzman"
+			},
+			{
 				"caption": "Golden Sargassum",
 				"credit": "Joshua M. Heitzman"
 			},
@@ -756,10 +823,6 @@ window.FIELD_SITES = [
 			},
 			{
 				"caption": "Fish sheltering in a crevice",
-				"credit": "Joshua M. Heitzman"
-			},
-			{
-				"caption": "Diver over a kelp bed",
 				"credit": "Joshua M. Heitzman"
 			},
 			{
@@ -782,19 +845,19 @@ window.FIELD_SITES = [
 		"tara": false,
 		"photos": [
 			{
+				"caption": "ARMS unit among the seaweed"
+			},
+			{
 				"caption": "CO₂ bubbles rising past black coral"
 			},
 			{
 				"caption": "Sea fan"
 			},
 			{
-				"caption": "Jellyfish"
-			},
-			{
 				"caption": "Wrasse over Sargassum"
 			},
 			{
-				"caption": "ARMS unit among the seaweed"
+				"caption": "Jellyfish"
 			}
 		]
 	}
