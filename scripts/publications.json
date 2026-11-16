@@ -1,0 +1,14 @@
+{
+	"researchmap_id": "joheitzman",
+	"highlight": "Heitzman",
+	"pages": ["index.html", "ja/index.html"],
+	"exclude_dois": [
+		"10.21203/rs.3.rs-3779657/v1"
+	],
+	"extra": [
+		{
+			"date": "2024-03",
+			"html": "<b>Heitzman, J.M.</b>, 2024. Coral-algae interactions in the Anthropocene. Ph.D. thesis, University of Tsukuba. <a href=\"https://doi.org/10.15068/0002013012\">https://doi.org/10.15068/0002013012</a>"
+		}
+	]
+}

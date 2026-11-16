@@ -9,196 +9,173 @@
 		<title>Joshua M. Heitzman, Ph.D.</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="Joshua M. Heitzman, Ph.D. Marine ecologist studying coral eco-physiology, coral disease, ocean acidification and blue carbon in coastal ecosystems." />
+		<meta name="description" content="Joshua M. Heitzman, Ph.D. Marine ecologist studying coral eco-physiology, coral-algae interactions, coral disease and microbial community responses to ocean warming and acidification." />
 		<meta name="author" content="Joshua M. Heitzman" />
 		<meta property="og:title" content="Joshua M. Heitzman, Ph.D." />
-		<meta property="og:description" content="Coral eco-physiology, coral disease dynamics, ocean acidification and blue carbon." />
-		<meta property="og:image" content="https://joheitzman.github.io/images/banner.jpg" />
+		<meta property="og:description" content="Coral eco-physiology, coral-algae interactions, coral disease and microbial communities under ocean warming and acidification." />
+		<meta property="og:image" content="https://joheitzman.github.io/images/og-image.jpg" />
 		<meta property="og:url" content="https://joheitzman.github.io/" />
+		<link rel="alternate" hreflang="en" href="https://joheitzman.github.io/" />
+		<link rel="alternate" hreflang="ja" href="https://joheitzman.github.io/ja/" />
+		<link rel="alternate" hreflang="x-default" href="https://joheitzman.github.io/" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;display=swap" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
-		<style>
-			/* Field sites map */
-			#sites-map { height: min(640px, 80vh); border-radius: 6px; margin: 0.5em 0 1.5em 0; z-index: 0; background: #b7d3e6; }
-			@media screen and (max-width: 736px) { #sites-map { height: 480px; } }
-			#sites-map .leaflet-control-attribution { font-size: 9px; max-width: 70%; }
-			.sites-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4em 1.5em; font-size: 0.9em; }
-			.sites-legend .button { margin-left: auto; }
-			.dot { display: inline-block; width: 0.8em; height: 0.8em; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,0.15); margin-right: 0.45em; vertical-align: -0.05em; }
-			.dot.tara { background: #00aaff; } .dot.other { background: #ff7a45; }
-			.sites-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(14em, 1fr)); gap: 0.25em 1em; }
-			.sites-list li { padding: 0; margin: 0; border: 0; }
-			.sites-list button { all: unset; cursor: pointer; display: block; padding: 0.3em 0; font-size: 0.9em; color: inherit; }
-			.sites-list button:hover, .sites-list button:focus-visible { color: #00aaff; }
-			.sites-list small { color: #999; }
-			.sites-credit { font-size: 0.75em; color: #999; margin-top: 0.5em; }
-			.site-tooltip { padding: 0; border: 0; border-radius: 6px; overflow: hidden; box-shadow: 0 6px 24px rgba(0,0,0,0.25); }
-			.site-card { width: 240px; font-family: inherit; line-height: 1.35; }
-			.site-card img { display: block; width: 240px; height: 160px; object-fit: cover; background: #ddd; }
-			.site-card strong, .site-card span, .site-card em { display: block; padding: 0 10px; white-space: normal; }
-			.site-card strong { padding-top: 8px; font-size: 14px; color: #333; }
-			.site-card span { font-size: 12px; color: #777; }
-			.site-card em { font-size: 11px; color: #00aaff; padding-bottom: 8px; font-style: normal; }
-			/* Slideshow */
-			body.sv-open { overflow: hidden; }
-			#site-viewer { position: fixed; inset: 0; z-index: 20000; background: rgba(10,16,22,0.92); display: flex; align-items: center; justify-content: center; padding: 1em; }
-			#site-viewer[hidden] { display: none; }
-			.sv-panel { width: min(1100px, 100%); max-height: 100%; display: flex; flex-direction: column; color: #eee; }
-			.sv-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1em; }
-			.sv-title { color: #fff; margin: 0; }
-			.sv-meta { margin: 0 0 0.5em 0; font-size: 0.85em; color: #aab; }
-			.sv-close { all: unset; cursor: pointer; font-size: 2.2em; line-height: 1; color: #fff; padding: 0 0.2em; }
-			.sv-stage { position: relative; display: flex; align-items: center; justify-content: center; min-height: 0; flex: 1 1 auto; }
-			.sv-image { max-width: 100%; max-height: 68vh; border-radius: 4px; transition: opacity 0.2s; }
-			.sv-image.loading { opacity: 0.35; }
-			.sv-prev, .sv-next { all: unset; cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); font-size: 3em; line-height: 1; color: #fff; background: rgba(0,0,0,0.35); width: 1.1em; height: 1.4em; text-align: center; border-radius: 4px; }
-			.sv-prev { left: 0.1em; } .sv-next { right: 0.1em; }
-			.sv-prev:hover, .sv-next:hover, .sv-close:hover { color: #00aaff; }
-			.sv-foot { display: flex; justify-content: space-between; gap: 1em; font-size: 0.85em; color: #ccd; margin: 0.6em 0; }
-			.sv-counter { white-space: nowrap; color: #889; }
-			.sv-strip { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; }
-			.sv-strip button { all: unset; cursor: pointer; flex: 0 0 auto; opacity: 0.5; border: 2px solid transparent; border-radius: 3px; }
-			.sv-strip button.active, .sv-strip button:hover { opacity: 1; border-color: #00aaff; }
-			.sv-strip img { display: block; width: 84px; height: 56px; object-fit: cover; }
-
-			/* Small additions on top of the HTML5 UP theme */
-			.timeline li { padding-top: 0.6em !important; }
-			.timeline .when { float: right; color: #888; font-size: 0.9em; margin-left: 1em; }
-			.timeline .where { display: block; font-size: 0.9em; color: #777; }
-			.tagline { overflow: hidden; }
-			.tagline.fulljustify:after { display: none; }
-			.pub-list .csl-entry { margin-bottom: 0.9em; }
-			.approach { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2em; margin-bottom: 1em; }
-			.approach h5 .icon { color: #00aaff; margin-right: 0.35em; }
-			@media screen and (max-width: 736px) { .approach { grid-template-columns: 1fr; } }
-			.team article { display: flex; align-items: flex-start; gap: 1.5em; margin-bottom: 2em; }
-			.team .image.avatar { flex: 0 0 7em; width: 7em; margin: 0; }
-			.team .image.avatar img { width: 7em; height: 7em; border-radius: 100%; object-fit: cover; }
-			@media screen and (max-width: 480px) { .team article { flex-direction: column; } .timeline .when { float: none; display: block; margin-left: 0; } }
-		</style>
+		<link rel="stylesheet" href="assets/css/page.css" />
+		<link rel="stylesheet" href="assets/css/refresh.css" />
 	</head>
 	<body class="is-preload">
 
-		<!-- Header -->
-			<section id="header">
-				<header>
-					<span class="image avatar"><img src="images/avatar.jpg" alt="Portrait of Joshua M. Heitzman" /></span>
-					<h1 id="logo"><a href="#">Joshua M. Heitzman</a></h1>
-					<p>Marine Ecologist</p>
-				</header>
-				<nav id="nav">
+		<a class="skip-link" href="#about">Skip to content</a>
+
+		<!-- Top bar -->
+			<header id="topbar">
+				<a class="brand" href="#top"><img src="images/avatar.jpg" alt="" width="36" height="36" /><span>Joshua M. Heitzman</span></a>
+				<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav"><span class="icon solid fa-bars" aria-hidden="true"></span><span class="label">Menu</span></button>
+				<nav id="nav" aria-label="Sections">
 					<ul>
-						<li><a href="#about" class="active">About</a></li>
+						<li><a href="#about">About</a></li>
 						<li><a href="#research">Research</a></li>
 						<li><a href="#sites">Field Sites</a></li>
 						<li><a href="#lab">Lab</a></li>
-						<li><a href="#cv"><i>Curriculum Vitae</i> (CV)</a></li>
-						<li><a href="#publications">Publications</a></li>
+						<li><a href="#cv">CV</a></li>
 						<li><a href="#contact">Contact</a></li>
+						<li class="lang-switch"><a href="ja/" lang="ja" hreflang="ja">日本語</a></li>
 					</ul>
 				</nav>
-				<footer>
-					<ul class="icons">
-						<li><a href="https://twitter.com/smrc_heitzman" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="https://www.researchgate.net/profile/Joshua-Heitzman" class="icon brands fa-researchgate"><span class="label">ResearchGate</span></a></li>
-						<li><a href="https://github.com/joheitzman" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="https://orcid.org/0000-0002-8275-5006" class="icon brands fa-orcid"><span class="label">ORCID</span></a></li>
-						<li><a href="mailto:joheitzman@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-				</footer>
-			</section>
-
+			</header>
 		<!-- Wrapper -->
 			<div id="wrapper">
+				<!-- Hero -->
+					<section id="top" class="hero">
+						<picture>
+							<source media="(max-width: 900px)" srcset="images/hero-small.jpg" />
+							<img src="images/hero.jpg" alt="Reef wall with table coral and fish at the Shikine Island CO2 seeps" />
+						</picture>
+						<div class="hero-inner">
+							<p class="hero-kicker">Marine ecologist</p>
+							<h1>Joshua M. Heitzman, Ph.D.</h1>
+							<p class="hero-role">Assistant Professor<span>Takehara Fisheries Research Station, Hiroshima University</span></p>
+							<p class="hero-lede">I study how ocean warming and acidification affect corals: their physiology, their microbial communities, and their interactions with algae.</p>
+							<ul class="hero-actions">
+								<li><a href="#research" class="button primary">Research &amp; publications</a></li>
+								<li><a href="#sites" class="button ghost">Field sites map</a></li>
+								<li><a href="./CV_Heitzman_2026-11.pdf" class="button ghost">Download CV</a></li>
+							</ul>
+							<ul class="icons hero-icons">
+								<li><a href="https://orcid.org/0000-0002-8275-5006" class="icon brands fa-orcid" title="ORCID"><span class="label">ORCID</span></a></li>
+								<li><a href="https://researchmap.jp/joheitzman" class="icon solid fa-address-card" title="researchmap"><span class="label">researchmap</span></a></li>
+								<li><a href="https://scholar.google.com/citations?user=quJpCWkAAAAJ" class="icon solid fa-graduation-cap" title="Google Scholar"><span class="label">Google Scholar</span></a></li>
+								<li><a href="https://www.researchgate.net/profile/Joshua-Heitzman" class="icon brands fa-researchgate" title="ResearchGate"><span class="label">ResearchGate</span></a></li>
+								<li><a href="https://github.com/joheitzman" class="icon brands fa-github" title="GitHub"><span class="label">GitHub</span></a></li>
+								<li><a href="https://twitter.com/smrc_heitzman" class="icon brands fa-twitter" title="Twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="mailto:heitzman@hiroshima-u.ac.jp" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+						</div>
+						<p class="hero-credit">Shikine Island, Tokyo · Photo: Joshua M. Heitzman</p>
+					</section>
 
 				<!-- Main -->
 					<div id="main">
 
 						<!-- About -->
 							<section id="about">
-								<div class="image main" data-position="center">
-									<img src="images/banner.jpg" alt="Underwater view of a coral community" />
-								</div>
-								<div class="container">
-									<header class="major">
-										<h2>Joshua M. Heitzman, Ph.D.</h2>
-										<p>coral eco-physiology | coral disease dynamics | ocean acidification | blue carbon</p>
-									</header>
-									<!-- TODO: update with your current position once your CV is finalised. -->
-									<p>I am a marine ecologist interested in how environmental change, especially ocean acidification and ocean warming, reshapes biological interactions in coastal ecosystems, and what those shifts mean for corals, algae and the carbon these ecosystems store.</p>
-									<p>I am an Assistant Professor at the <b>Takehara Fisheries Research Station, Seto Inland Sea Carbon-neutral Research Center, Hiroshima University</b>. Before this I was a post-doctoral researcher and then a JSPS Postdoctoral Fellow at the same center (Prof. Shigeki Wada), studying how ocean acidification affects the carbon sequestration capacity (blue carbon) of coastal ecosystems. As part of this work I took part in the 2025 TARA-JAMBIO Blue Carbon expedition, surveying coastal algae across temperate Japan <a href="https://jp.fondationtaraocean.org/expedition/tara-jambio-bluecarbon/">(read about it here)</a>.</p>
-									<p>I received my Ph.D. from the University of Tsukuba (Shimoda Marine Research Center) under Dr. Sylvain Agostini, studying coral-algae interactions in the Anthropocene, and was a post-doctoral researcher at Arizona State University (Dr. Liza Roger), working on nitro-oxidative stress in the coral-dinoflagellate symbiosis.</p>
+								<div class="container about-grid">
+									<div>
+										<h2 class="section-title">About</h2>
+										<p class="tags">Coral eco-physiology · Coral-algae interactions · Coral disease &amp; microbes · Ocean acidification &amp; warming</p>
+										<p>I am a marine ecologist studying how climate change, especially ocean warming and acidification, reshapes coral ecosystems. My research focuses on coral eco-physiology, the microbial communities of corals and algae, and the interactions between the two: from algae-driven coral disease outbreaks, to turf algae that dissolve coral skeletons at natural CO<sub>2</sub> seeps, to the physiological traits that help some corals cope with acidification.</p>
+										<p>I am an Assistant Professor at the <b>Takehara Fisheries Research Station, Seto Inland Sea Carbon-neutral Research Center, Hiroshima University</b>. Before this I was a post-doctoral researcher and then a JSPS Postdoctoral Fellow at the same center (Prof. Shigeki Wada), studying how ocean acidification affects the carbon sequestration capacity (blue carbon) of coastal ecosystems. As part of this work I took part in the 2025 TARA-JAMBIO Blue Carbon expedition, surveying coastal algae across temperate Japan <a href="https://jp.fondationtaraocean.org/expedition/tara-jambio-bluecarbon/">(read about it here)</a>.</p>
+										<p>I received my Ph.D. from the University of Tsukuba (Shimoda Marine Research Center) under Dr. Sylvain Agostini, studying coral-algae interactions in the Anthropocene, and was a post-doctoral researcher at Arizona State University (Dr. Liza Roger), working on nitro-oxidative stress in the coral-dinoflagellate symbiosis.</p>
+									</div>
+									<figure class="about-portrait"><img src="images/avatar.jpg" alt="Portrait of Joshua M. Heitzman" width="400" height="400" loading="lazy" /></figure>
 								</div>
 							</section>
 
 						<!-- Research -->
 							<section id="research">
 								<div class="container">
-									<h3>Research</h3>
-									<p>My work combines field surveys (SCUBA), natural CO<sub>2</sub> seep sites, aquarium experiments and lab techniques from microsensors to microbiome sequencing. It follows a few connected themes:</p>
-									<div class="features">
-										<article>
-											<span class="image"><img src="images/pic03.JPG" alt="Turf algae growing on coral skeleton next to live coral tissue" /></span>
-											<div class="inner">
-												<h4>Coral-algae interactions under ocean acidification</h4>
-												<p>As CO<sub>2</sub> rises, turf algae gain the upper hand over corals. Using laboratory experiments and transplants at volcanic CO<sub>2</sub> seeps off Shikine Island, I study how algae alter the chemistry next to coral tissue, and how this can turn coral skeleton from something that is built into something that is eroded.</p>
+										<h2 class="section-title" id="publications">Research &amp; Publications</h2>
+										<p>My research asks how ocean warming and acidification change corals and the communities around them. I study coral eco-physiology, from mitochondrial energy production to calcification and skeletal dissolution; the microbial communities of corals, algae and coral disease; and how competition between corals and algae shifts as conditions change. I combine SCUBA field surveys, natural CO<sub>2</sub> seeps as windows into a future ocean, aquarium experiments and lab techniques from microsensors to microbiome sequencing. With collaborators I have also worked on the collapse of kelp forests under marine heatwaves and on how ocean acidification affects the body size of marine animals.</p>
+										<!-- Featured papers: figure first, then a short plain-language summary, the citation, and the full abstract on demand -->
+										<article class="paper">
+											<a href="https://doi.org/10.1002/gcb4.70043" class="paper-fig"><img src="images/research/oa-turf-abstract.jpg" alt="Graphical abstract: aragonite saturation drops below 1 over turf algae under high CO2, leading to metabolically induced dissolution of coral skeleton, shown alongside photos and SEM images of present-day and high-CO2 corals" loading="lazy" /></a>
+											<div class="paper-text">
+												<h4>Turf algae dissolve coral skeletons under ocean acidification</h4>
+												<p class="paper-meta">Ocean acidification · Shikine Island CO<sub>2</sub> seeps · <i>Global Change Biology Communications</i> 2026</p>
+												<p>As CO<sub>2</sub> rises, turf algae gain the upper hand over corals. We grew standardised coral-turf "microcolonies" of two corals, <i>Acropora solitaryensis</i> and <i>Porites heronensis</i>, in aquaria and at the volcanic CO<sub>2</sub> seeps off Shikine Island. Turf algae won the competition under high CO<sub>2</sub>, and their activity acidified the thin layer of water over the exposed coral skeleton, so the skeleton passively dissolved. As turf spreads, reefs could tip towards net dissolution.</p>
+												<details><summary>Abstract</summary><p>Ocean acidification (OA) is expected to lower seawater pH and aragonite saturation (&Omega;<sub>arag</sub>), altering reef carbonate budgets through combined effects on calcification, dissolution, and species interactions. However, OA may benefit low-profile algal turfs, comprised of several epilithic species, that tend to settle onto exposed coral skeletons following disturbance events. Despite the future predicted prevalence of turf algae across ecosystems, their contribution to future reef ecology and carbonate budget remains poorly understood. Coral-turf algae competition and carbonate dynamics under future high <i>p</i>CO<sub>2</sub> conditions were investigated by using standardized coral-turf algae microcolonies representative of future community-level interactions. Experiments were conducted using two coral species, <i>Acropora solitaryensis</i> and <i>Porites heronensis</i>, in both controlled aquaria and a natural CO<sub>2</sub> seep environment in a marginal coral community. Turf algae were competitively favored under high <i>p</i>CO<sub>2</sub> conditions, highlighting the importance of biotic interactions in shaping future reef communities. The local pH microenvironment under the turf, resulting from associated biological activity, combined with OA, promoted the chemical passive dissolution of the coral carbonate skeleton. Turf proliferation under climate change and OA will influence carbonate budgets through a combination of biotic and abiotic mechanisms, contributing to the shift of reefs towards a state of net dissolution.</p></details>
+												<p class="paper-cite"><b>Heitzman, J.M.</b>, Iijima, L., Mitushasi, G., Spatafora, D., Wada, S., Harvey, B.P., Kurihara, H., Agostini, S. (2026). <i>Global Change Biology Communications</i> 1(3), e70043. <a href="https://doi.org/10.1002/gcb4.70043">doi:10.1002/gcb4.70043</a></p>
 											</div>
 										</article>
-										<article>
-											<span class="image"><img src="images/pic01.jpg" alt="Porites heronensis colony affected by White Mat Syndrome" /></span>
-											<div class="inner">
-												<h4>Coral disease in marginal, warm-temperate communities</h4>
-												<p>I described White Mat Syndrome, a recurring coral disease in temperate Japan linked to summer temperatures and the red alga <i>Gelidium elegans</i>, which acts as a reservoir for the pathogenic microbial mat. This work asks whether high-latitude coral communities can really act as climate refuges.</p>
-											</div>
-										</article>
-										<article>
-											<span class="image"><img src="images/research-reef.jpg" alt="Temperate coral and algal community in Japan" /></span>
-											<div class="inner">
-												<h4>Blue carbon in a high-CO<sub>2</sub> ocean</h4>
-												<p>Seaweed and seagrass beds capture and store carbon. At Hiroshima University I am investigating how ocean acidification changes these coastal ecosystems and their capacity to sequester carbon, from the Seto Inland Sea to the wider Japanese coastline.</p>
-											</div>
-										</article>
-										<article>
-											<span class="image"><img src="images/research-cells.jpg" alt="Confocal image of dissociated coral cells and algal symbionts" /></span>
-											<div class="inner">
-												<h4>Cellular stress in the coral symbiosis</h4>
-												<p>At the cellular scale, I have used cell dissociation, confocal microscopy and fluorescent probes to explore how nitro-oxidative stress affects the partnership between corals and their dinoflagellate symbionts.</p>
-											</div>
-										</article>
-									</div>
 
-									<!-- Tentative list: descriptions to be added once details are provided. -->
+										<article class="paper">
+											<a href="https://doi.org/10.1016/j.scitotenv.2023.166379" class="paper-fig"><img src="images/research/wms-abstract.jpg" alt="Graphical abstract: in warm summers the red alga Gelidium elegans degrades and hosts the White Mat Syndrome microbial mat, which infects adjacent Porites corals by contact and through drifting fragments; sulfur-cycling and C/N/S-cycling bacteria exchange metabolic products" loading="lazy" /></a>
+											<div class="paper-text">
+												<h4>Seasonal coral-algae interactions drive White Mat Syndrome outbreaks</h4>
+												<p class="paper-meta">Coral disease · Shimoda · <i>Science of The Total Environment</i> 2023</p>
+												<p>In summer, the red alga <i>Gelidium elegans</i> starts to break down and becomes a breeding ground for the White Mat Syndrome microbial mat. Infection experiments showed that the mat spreads to neighbouring <i>Porites</i> corals by direct contact and through drifting fragments, and pointed to a consortium of sulfur-cycling bacteria as the likely pathogens.</p>
+												<details><summary>Abstract</summary><p>Ocean warming drives not only the increase of known coral disease prevalence but facilitates the emergence of new undescribed ones too. As climate change is restructuring coral ecosystems, novel biological interactions could lead to an increase in coral disease in both tropical and marginal coral communities. White Mat Syndrome (WMS) represents one such emerging coral disease, with outbreaks associated with high algal interactions and seasonal summer temperatures. However, the mechanisms behind its pathogenesis, modes of transmission and causative pathogens remain to be identified. <i>Ex situ</i> infection experiments pairing the coral <i>Porites heronensis</i> together with local potential contributory factors show that the macroalga <i>Gelidium elegans</i> hosts and proliferates the WMS microbial mat. This pathogenic consortium then infects adjacent corals, leading to their mortality. WMS was also observed to transmit following the fragmentation of the microbial mat, which was able to infect healthy corals. Sulfur-cycling bacteria (i.e., <i>Beggiatoa</i>, <i>Desulfobacter</i> sp., Arcobacteraceae species) and the freeliving spirochete <i>Oceanospirochaeta sediminicola</i> were found consistently in both WMS and <i>G. elegans</i> consortia, suggesting they are putative pathogens of WMS. The predicted functional roles of these pathogenic consortia showed degradative processes, hinting that tissue lyses could drive mat formation and spread. Coral-algae interactions will rise due to ongoing ocean warming and coral ecosystem degradation, likely promoting the virulence and prevalence of algal-driven coral diseases.</p></details>
+												<p class="paper-cite"><b>Heitzman, J.M.</b>, Mitushasi, G., Spatafora, D., Agostini, S. (2023). <i>Science of The Total Environment</i> 900, 166379. <a href="https://doi.org/10.1016/j.scitotenv.2023.166379">doi:10.1016/j.scitotenv.2023.166379</a></p>
+											</div>
+										</article>
+
+										<article class="paper">
+											<a href="https://doi.org/10.1016/j.marpolbul.2022.113954" class="paper-fig"><img src="images/research/wms-outbreak.jpg" alt="White Mat Syndrome: a Porites heronensis colony covered by a white microbial mat, and microscope images of the filamentous bacteria that form the mat" loading="lazy" /></a>
+											<div class="paper-text">
+												<h4>A recurrent coral disease outbreak in a warm-temperate coral community</h4>
+												<p class="paper-meta">Coral disease · Shimoda · <i>Marine Pollution Bulletin</i> 2022</p>
+												<p>The first description of a coral disease outbreak in warm-temperate waters. Since 2014, a white bacterial mat dominated by the sulfide-oxidising <i>Thiothrix</i> has been killing <i>Porites heronensis</i> colonies off Shimoda after hot summers, with the red alga <i>Gelidium elegans</i> acting as a reservoir. Emerging diseases like this could undermine the idea of high-latitude reefs as climate refuges.</p>
+												<details><summary>Abstract</summary><p>Coral diseases contribute to the rapid degradation of coral reefs on a global scale. Although widespread in tropical and subtropical reefs, disease outbreaks have not been described in warm temperate areas. Here, we report the outbreak of a new coral disease in a warm temperate marginal coral community in Japan. Outbreaks of the disease have been observed during the summer and autumn months since 2014. It affects the coral species <i>Porites heronensis</i> and was tentatively named "White Mat Syndrome" (WMS) as it consists of a white microbial mat dominated by <i>Thiothrix</i> sp., a sulfide oxidizing bacteria. Outbreaks followed high seasonal temperatures and were associated with the macroalga <i>Gelidium elegans</i>, which acts as a pathogen reservoir. With ocean warming and the anticipated increase in novel coral-algae interactions as some coral species shift poleward, WMS and emerging diseases could hinder the role of temperate areas as a future coral refuge.</p></details>
+												<p class="paper-cite"><b>Heitzman, J.M.</b>, Caputo, N., Yang, S.-Y., Harvey, B.P., Agostini, S. (2022). <i>Marine Pollution Bulletin</i> 182, 113954. <a href="https://doi.org/10.1016/j.marpolbul.2022.113954">doi:10.1016/j.marpolbul.2022.113954</a></p>
+											</div>
+										</article>
+
+										<h4>Cellular stress in the coral symbiosis <span class="h-note">Arizona State University, 2024</span></h4>
+										<p>In Dr. Liza Roger's Marine Biochem Lab (School of Molecular Sciences and School of Ocean Futures), I went from the reef down to the single cell to look at what triggers coral bleaching. Under heat stress, reactive oxygen and nitrogen species (ROS/RNS, or free radicals) build up inside coral cells, and the coral ends up expelling the algae that live inside it. Coral studies usually measure the total oxidative stress of a whole colony, and mostly look only at hydrogen peroxide, so which free radicals actually drive bleaching is still unclear.</p>
+										<p>Biomedical researchers already have a large toolkit of assays and fluorescent probes for measuring specific free radicals in live cells, so I tested whether it works in corals too. I dissociated live cells from the coral <i>Pocillopora acuta</i>, checked their viability with nuclear stains, and then ran a panel of assays and probes for hydrogen peroxide, superoxide, nitric oxide and peroxynitrite, in the cytosol, the mitochondria and the space outside the cell. Each was validated against positive and negative controls before comparing cells at 25&nbsp;°C and 30&nbsp;°C.</p>
+										<p class="paper-cite">Presented as <i>Investigating extra- and intracellular free radical dynamics in vitro in</i> Pocillopora acuta <i>cells</i>, ASU Ocean Futures Symposium 2024 (J.M. Heitzman, S. Chowdury, A. Padula, D. Domaille, D. Wangpraseurt, H. Putnam &amp; L. Roger).</p>
+										<div class="gallery">
+											<figure><img src="images/research/asu-aquaria.jpg" alt="Experimental coral aquarium system with rows of glass tanks under blue light" loading="lazy" /><figcaption>Experimental coral aquarium system</figcaption></figure>
+											<figure><img src="images/research/asu-corals.jpg" alt="Small branching Pocillopora acuta coral fragments on a grid in a holding tray" loading="lazy" /><figcaption><i>Pocillopora acuta</i> fragments before cell dissociation</figcaption></figure>
+											<figure><img src="images/research/asu-symbionts.jpg" alt="Microscope view of dissociated coral cells containing golden-brown symbiotic algae" loading="lazy" /><figcaption>Dissociated coral cells and their algal symbionts</figcaption></figure>
+											<figure><img src="images/research/asu-fluorescence.jpg" alt="Fluorescence microscope image of live dissociated coral cells labelled with fluorescent probes" loading="lazy" /><figcaption>Live coral cells with fluorescent probes</figcaption></figure>
+										</div>
+
+										<h4>Blue carbon in a high-CO<sub>2</sub> ocean <span class="h-note">Hiroshima University, 2025 – present</span></h4>
+										<p>Seaweed and seagrass beds capture and store carbon. At Hiroshima University I study how ocean acidification and warming change these coastal ecosystems and their capacity to sequester carbon, from the Seto Inland Sea to coasts across Japan, including the TARA-JAMBIO Blue Carbon surveys. The <a href="#sites">field sites map</a> shows where this work has taken me.</p>
+
 									<h4>Current projects</h4>
-									<ul>
-										<li>TARA-JAMBIO Blue Carbon Project</li>
-										<li>ICONA network</li>
-										<li>Turf algal microbial communities across Japan</li>
-										<li>Coral responses to climate change in the Seto Inland Sea</li>
-										<li>Benthic and microbial ecology responses to climate change in the Seto Inland Sea</li>
+									<ul class="projects">
+										<li><b>TARA-JAMBIO Blue Carbon Project</b><span>Nationwide surveys of seaweed and seagrass beds and the carbon they store along the coasts of temperate Japan, including the 2025 expedition.</span></li>
+										<li><b>Coral responses to ocean acidification at natural CO<sub>2</sub> seeps</b><span>Using the volcanic CO<sub>2</sub> seeps of Shikine Island as natural analogues of a future high-CO<sub>2</sub> ocean to assess how corals, and their interactions with algae, respond.</span></li>
+										<li><b>Turf algal exudates and microbes as indicators of ecosystem degradation</b><span>Turf algae take over dead coral and bare rock after disturbances, and they and their microbes release dissolved organic matter that pushes reefs towards degraded states. I am testing whether their exudates and microbial communities can flag ecosystems at risk of shifting to algae.</span><em>JSPS KAKENHI Grant-in-Aid for JSPS Fellows (26KJ0237), 2026&ndash;2029 &middot; PADI Foundation grant, 2026&ndash;2027</em></li>
+										<li><b>A chemical fingerprint database for seaweeds</b><span>Building a database of the metabolites and exudates that seaweeds from coasts across Japan produce and release, and measuring how quickly these biomarkers break down, so that the chemistry of seafloor sediments can show how much seaweed-derived carbon is stored there.</span><em>JSPS KAKENHI Grant-in-Aid for Scientific Research (B) (26K00790), 2026&ndash;2030 &middot; co-investigator (led from Kagawa University)</em></li>
+										<li><b>Benthic ecology of the Seto Inland Sea</b><span>How benthic communities and their microbes around Takehara are responding to climate change.</span></li>
 									</ul>
 
-									<h4>Methods and expertise</h4>
-									<ul class="feature-icons">
-										<li class="icon solid fa-water">Field surveys and monitoring (SCUBA, 200+ scientific dives)</li>
-										<li class="icon solid fa-vial">Coral eco-physiology</li>
-										<li class="icon solid fa-flask">Seawater chemistry (TA, pH, POC, FDOM, TSS)</li>
-										<li class="icon solid fa-bacteria">Microbial communities (16S, QIIME2)</li>
-										<li class="icon solid fa-microscope">Confocal and SEM microscopy</li>
-										<li class="icon solid fa-bacterium">Cnidarian cell dissociation and culture</li>
-										<li class="icon solid fa-syringe">Microsensors (Unisense)</li>
-										<li class="icon solid fa-atom">Stable isotope mass spectrometry (EA-IRMS)</li>
-										<li class="icon solid fa-cube">Experimental aquarium systems</li>
-										<li class="icon solid fa-code">Statistics and figures in R</li>
-										<li class="icon solid fa-image">Image analysis in ImageJ/Fiji and mapping in QGIS</li>
-										<li class="icon solid fa-language">Bilingual: English and Japanese</li>
-									</ul>
+									<h4>All publications</h4>
+									<p class="pub-note">Updated monthly from <a href="https://researchmap.jp/joheitzman">researchmap</a>. Also on <a href="https://scholar.google.com/citations?user=quJpCWkAAAAJ">Google Scholar</a> and <a href="https://orcid.org/0000-0002-8275-5006">ORCID</a>.</p>
+									<div class="pub-list" style="line-height: 1.35; margin-left: 2em; text-indent: -2em;">
+										<!-- PUBLICATIONS:START (generated from researchmap by scripts/update_publications.py; edit scripts/publications.json, not this list) -->
+										<div class="csl-entry">Harvey, B.P., Takenaka, H., Shiel, M., <b>Heitzman, J.M.</b>, Mitushasi, G., Iijima, L., Wada, S., Hama, T., King, N.G., Smale, D.A., Agostini, S., 2026. Unprecedented Warming and Increased Herbivory Drive Collapse of Japan's Kelp Forests. <i>Global Change Biology</i> 32, e71106. <a href="https://doi.org/10.1111/gcb.71106">https://doi.org/10.1111/gcb.71106</a></div>
+										<div class="csl-entry"><b>Heitzman, J.M.</b>, Iijima, L., Mitushasi, G., Spatafora, D., Wada, S., Harvey, B.P., Kurihara, H., Agostini, S., 2026. Altered Coral‐Turf Algae Competition Leads to the Passive Dissolution of Coral Skeletons Under Ocean Acidification. <i>Global Change Biology Communications</i> 1, e70043. <a href="https://doi.org/10.1002/gcb4.70043">https://doi.org/10.1002/gcb4.70043</a></div>
+										<div class="csl-entry">Hart, M.E., Connell, S.D., Mitchell, A., Harvey, B.P., Agostini, S., <b>Heitzman, J.M.</b>, Nagelkerken, I., 2026. Marine invertebrates and fishes exhibit inconsistent body size responses to ocean acidification. <i>Limnology and Oceanography</i> 71, e70421. <a href="https://doi.org/10.1002/lno.70421">https://doi.org/10.1002/lno.70421</a></div>
+										<div class="csl-entry"><b>Heitzman, J.M.</b>, 2024. Coral-algae interactions in the Anthropocene. Ph.D. thesis, University of Tsukuba. <a href="https://doi.org/10.15068/0002013012">https://doi.org/10.15068/0002013012</a></div>
+										<div class="csl-entry"><b>Heitzman, J.M.</b>, Mitushasi, G., Spatafora, D., Agostini, S., 2023. Seasonal coral-algae interactions drive White Mat Syndrome coral disease outbreaks. <i>Science of The Total Environment</i> 900, 166379. <a href="https://doi.org/10.1016/j.scitotenv.2023.166379">https://doi.org/10.1016/j.scitotenv.2023.166379</a></div>
+										<div class="csl-entry"><b>Heitzman, J.M.</b>, Caputo, N., Yang, S.-Y., Harvey, B.P., Agostini, S., 2022. Recurrent disease outbreak in a warm temperate marginal coral community. <i>Marine Pollution Bulletin</i> 182, 113954. <a href="https://doi.org/10.1016/j.marpolbul.2022.113954">https://doi.org/10.1016/j.marpolbul.2022.113954</a></div>
+										<div class="csl-entry">Agostini, S., Houlbrèque, F., Biscéré, T., Harvey, B.P., <b>Heitzman, J.M.</b>, Takimoto, R., Yamazaki, W., Milazzo, M., Rodolfo-Metalpa, R., 2021. Greater Mitochondrial Energy Production Provides Resistance to Ocean Acidification in “Winning” Hermatypic Corals. <i>Frontiers in Marine Science</i> 7, 600836. <a href="https://doi.org/10.3389/fmars.2020.600836">https://doi.org/10.3389/fmars.2020.600836</a></div>
+										<!-- PUBLICATIONS:END -->
+									</div>
 								</div>
 							</section>
 
 						<!-- Field sites -->
 							<section id="sites">
 								<div class="container">
-									<h3>Field Sites</h3>
+									<h2 class="section-title">Field Sites</h2>
 									<p>From the subtropical reefs of Okinawa to kelp and seagrass beds in Hokkaido, these are the places I have surveyed. Hover over a site for a preview, and click it to see photos.</p>
 									<div class="sites-legend">
 										<span><span class="dot tara"></span>TARA-JAMBIO Blue Carbon surveys</span>
@@ -206,7 +183,6 @@
 										<button type="button" id="sites-reset" class="button small">Reset view</button>
 									</div>
 									<div id="sites-map" role="region" aria-label="Map of field sites in Japan"></div>
-									<ul id="sites-list" class="sites-list"></ul>
 									<p class="sites-credit">Drone mosaics are stitched from survey flights; their surroundings use aerial imagery from the Geospatial Information Authority of Japan (<a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院 地理院タイル</a>).</p>
 								</div>
 							</section>
@@ -214,9 +190,9 @@
 						<!-- Lab -->
 							<section id="lab">
 								<div class="container">
-									<h3>Lab</h3>
+									<h2 class="section-title">Lab</h2>
 									<!-- Add your lab name here once you've chosen one, e.g. <p><b>[Lab name]</b>, [Department], [Institution]</p> -->
-									<p>We study how a changing ocean rewires the interactions that hold coastal ecosystems together. As seawater warms and absorbs more CO<sub>2</sub>, the balance between corals, algae and microbes shifts, with knock-on effects for reef growth, disease and the carbon these habitats store. We combine fieldwork, natural CO<sub>2</sub> seeps and controlled experiments to work out the mechanisms behind these shifts and what they mean for the future of coastal seas.</p>
+									<p>We study how a changing ocean rewires the interactions that hold coastal ecosystems together. As seawater warms and absorbs more CO<sub>2</sub>, the balance between corals, algae and microbes shifts, with knock-on effects for reef growth, disease and the resilience of coastal ecosystems. We combine fieldwork, natural CO<sub>2</sub> seeps and controlled experiments to work out the mechanisms behind these shifts and what they mean for the future of coastal seas.</p>
 
 									<h4>What we do</h4>
 									<div class="approach">
@@ -244,7 +220,7 @@
 											<span class="image avatar"><img src="images/avatar.jpg" alt="Joshua M. Heitzman" /></span>
 											<div>
 												<h5>Joshua M. Heitzman, Ph.D.</h5>
-												<p>Principal Investigator<br />Marine ecologist working on coral-algae interactions, coral disease and blue carbon under ocean acidification.</p>
+												<p>Principal Investigator<br />Marine ecologist working on coral eco-physiology, coral-algae interactions and microbial communities under climate change.</p>
 											</div>
 										</article>
 										<!-- Copy the <article> block above for each lab member. -->
@@ -258,93 +234,24 @@
 						<!-- CV -->
 							<section id="cv">
 								<div class="container">
-									<h3><i>Curriculum Vitae</i> (CV)</h3>
+									<h2 class="section-title"><i>Curriculum Vitae</i> (CV)</h2>
 									<p>The full CV (updated November 2026) is available as a PDF.</p>
 									<ul class="actions">
 										<li><a href="./CV_Heitzman_2026-11.pdf" class="button primary icon solid fa-download">Download CV</a></li>
 									</ul>
-
-									<h4>Positions</h4>
-									<ul class="alt timeline">
-										<li><span class="when">Jul. 2026 – present</span><b>Assistant Professor</b><span class="where">Takehara Fisheries Research Station, Seto Inland Sea Carbon-neutral Research Center, Hiroshima University, Japan</span></li>
-										<li><span class="when">Apr. 2026 – Jun. 2026</span><b>JSPS Postdoctoral Fellow</b><span class="where">Seto Inland Sea Carbon-neutral Research Center, Hiroshima University, Japan</span></li>
-										<li><span class="when">May 2025 – Mar. 2026</span><b>Post-Doctoral Researcher</b><span class="where">Seto Inland Sea Carbon-neutral Research Center, Hiroshima University, Japan (PI: Prof. Shigeki Wada)</span></li>
-										<li><span class="when">Feb. 2025 – Mar. 2025</span><b>Researcher</b><span class="where">Shimoda Marine Research Center, University of Tsukuba, Japan (PI: Dr. Sylvain Agostini)</span></li>
-										<li><span class="when">Apr. 2024 – Nov. 2024</span><b>Post-Doctoral Researcher</b><span class="where">School of Molecular Sciences &amp; School of Ocean Futures, Arizona State University, USA (PI: Dr. Liza Roger)</span></li>
-									</ul>
-
-									<h4>Education</h4>
-									<ul class="alt timeline">
-										<li><span class="when">2021 – 2024</span><b>Ph.D., Biological Sciences</b><span class="where">University of Tsukuba (Shimoda Marine Research Center), Japan. Thesis: <i>Coral-algae interactions in the Anthropocene</i></span></li>
-										<li><span class="when">2019 – 2021</span><b>M.Sc., Biological Sciences</b><span class="where">University of Tsukuba (Shimoda Marine Research Center), Japan</span></li>
-										<li><span class="when">2014 – 2019</span><b>B.Sc., Biological Sciences</b><span class="where">University of Tsukuba, Japan</span></li>
-									</ul>
-
-									<h4>Selected awards and funding</h4>
-									<ul class="alt timeline">
-										<li><span class="when">2026 – 2029</span>JSPS KAKENHI Grant-in-Aid for JSPS Fellows (JP26KJ0237), "Assessing coral ecosystems and their degradation through turf algal exudates and microbial communities"</li>
-										<li><span class="when">2026</span>Outstanding Poster Award, Seto Inland Sea CN Research Center International Symposium</li>
-										<li><span class="when">2023</span>Best Oral Presentation Award, 26th Japanese Coral Reef Symposium</li>
-										<li><span class="when">2023</span>Japanese Coral Reef Society Travel Grant, 5th Asia-Pacific Coral Reef Symposium</li>
-										<li><span class="when">2021 – 2024</span>JST SPRING Fellowship, "Coral-algae interactions under ocean acidification"</li>
-										<li><span class="when">2021 – 2024</span>JASSO scholarship repayment exemption for outstanding achievement</li>
-									</ul>
-								</div>
-							</section>
-
-						<!-- Publications -->
-							<section id="publications">
-								<div class="container">
-									<h3>Publications</h3>
-									<p>Featured work (click an image to read the paper)</p>
-									<div class="features">
-										<!-- OA coral-turf algae -->
-										<article>
-											<a href="https://doi.org/10.21203/rs.3.rs-3779657/v1" class="image"><img src="images/pic03.JPG" alt="Turf algae on coral skeleton" /></a>
-											<div class="inner">
-												<h5>Turf algae drives coral bioerosion under high CO<sub>2</sub></h5>
-												<h6 class="tagline fulljustify">Turf algal prevalence will increase in coral ecosystems under ocean acidification yet their contribution towards the ongoing and projected degradation of reefs is often overlooked. Turf algal settlement was induced on exposed coral skeleton adjacent to live coral tissue to investigate coral-turf algal interactions through a combination of laboratory and field transplantation (shallow volcanic CO<sub>2</sub> seep) experiments across two temperature regimes. Here, we show that turf algae are competitively favored over corals under high pCO<sub>2</sub> conditions. Turf algae-associated biological activity locally acidified the microenvironment overlying the exposed coral skeleton, leading to its bioerosion. Increases in coral-turf algal interactions could shift coral ecosystems towards net dissolution and should be integrated into global accretion models when considering future carbonate budgets under climate change.</h6>
-											</div>
-										</article>
-										<!-- STOTEN WMS -->
-										<article>
-											<a href="https://doi.org/10.1016/j.scitotenv.2023.166379" class="image"><img src="images/pic02.jpg" alt="White Mat Syndrome infection experiment" /></a>
-											<div class="inner">
-												<h5>Seasonal coral-algae interactions drive White Mat Syndrome coral disease outbreaks</h5>
-												<h6 class="tagline fulljustify">Ocean warming drives not only the increase of known coral disease prevalence but facilitates the emergence of new undescribed ones too. As climate change is restructuring coral ecosystems, novel biological interactions could lead to an increase in coral disease in both tropical and marginal coral communities. White Mat Syndrome (WMS) represents one such emerging coral disease, with outbreaks associated with high algal interactions and seasonal summer temperatures. However, the mechanisms behind its pathogenesis, modes of transmission and causative pathogens remain to be identified. <i>Ex situ</i> infection experiments pairing the coral <i>Porites heronensis</i> together with local potential contributory factors show that the macroalga <i>Gelidium elegans</i> hosts and proliferates the WMS microbial mat. This pathogenic consortium then infects adjacent corals, leading to their mortality. WMS was also observed to transmit following the fragmentation of the microbial mat, which was able to infect healthy corals. Sulfur-cycling bacteria (i.e., <i>Beggiatoa</i>, <i>Desulfobacter</i> sp., Arcobacteraceae species) and the freeliving spirochete <i>Oceanospirochaeta sediminicola</i> were found consistently in both WMS and <i>G. elegans</i> consortia, suggesting they are putative pathogens of WMS. The predicted functional roles of these pathogenic consortia showed degradative processes, hinting that tissue lyses could drive mat formation and spread. Coral-algae interactions will rise due to ongoing ocean warming and coral ecosystem degradation, likely promoting the virulence and prevalence of algal-driven coral diseases.</h6>
-											</div>
-										</article>
-										<!-- MPB WMS -->
-										<article>
-											<a href="https://doi.org/10.1016/j.marpolbul.2022.113954" class="image"><img src="images/pic01.jpg" alt="Porites heronensis with White Mat Syndrome" /></a>
-											<div class="inner">
-												<h5>Recurrent disease outbreak in a warm temperate marginal coral community</h5>
-												<h6 class="tagline fulljustify">Coral diseases contribute to the rapid degradation of coral reefs on a global scale. Although widespread in tropical and subtropical reefs, disease outbreaks have not been described in warm temperate areas. Here, we report the outbreak of a new coral disease in a warm temperate marginal coral community in Japan. Outbreaks of the disease have been observed during the summer and autumn months since 2014. It affects the coral species <i>Porites heronensis</i> and was tentatively named "White Mat Syndrome" (WMS) as it consists of a white microbial mat dominated by <i>Thiothrix</i> sp., a sulfide oxidizing bacteria. Outbreaks followed high seasonal temperatures and were associated with the macroalga <i>Gelidium elegans</i>, which acts as a pathogen reservoir. With ocean warming and the anticipated increase in novel coral-algae interactions as some coral species shift poleward, WMS and emerging diseases could hinder the role of temperate areas as a future coral refuge.</h6>
-											</div>
-										</article>
-									</div>
-
-									<h4>All publications</h4>
-									<div class="pub-list" style="line-height: 1.35; margin-left: 2em; text-indent: -2em;">
-										<div class="csl-entry">Hart, M., Connell, S., Mitchell, A., Harvey, B.P., Agostini, S., <b>Heitzman, J.M.</b>, Nagelkerken, I., 2026. Marine invertebrates and fishes exhibit inconsistent body size responses to ocean acidification. <i>Limnology and Oceanography</i> 71, e70421. <a href="https://doi.org/10.1002/lno.70421">https://doi.org/10.1002/lno.70421</a></div>
-										<div class="csl-entry"><b>Heitzman, J.M.</b>, Iijima, L., Mitushasi, G., Spatafora, D., Wada, S., Harvey, B.P., Kurihara, H., Agostini, S., 2024. Turf algae drives coral bioerosion under high CO<sub>2</sub>. Preprint (Research Square). <a href="https://doi.org/10.21203/rs.3.rs-3779657/v1">https://doi.org/10.21203/rs.3.rs-3779657/v1</a></div>
-										<div class="csl-entry"><b>Heitzman, J.M.</b>, 2024. Coral-algae interactions in the Anthropocene. Ph.D. thesis, University of Tsukuba. <a href="https://doi.org/10.15068/0002013012">https://doi.org/10.15068/0002013012</a></div>
-										<div class="csl-entry"><b>Heitzman, J.M.</b>, Mitushasi, G., Spatafora, D., Agostini, S., 2023. Seasonal coral-algae interactions drive White Mat Syndrome coral disease outbreaks. <i>Science of The Total Environment</i> 900, 166379. <a href="https://doi.org/10.1016/j.scitotenv.2023.166379">https://doi.org/10.1016/j.scitotenv.2023.166379</a></div>
-										<div class="csl-entry"><b>Heitzman, J.M.</b>, Caputo, N., Yang, S.-Y., Harvey, B.P., Agostini, S., 2022. Recurrent disease outbreak in a warm temperate marginal coral community. <i>Marine Pollution Bulletin</i> 182, 113954. <a href="https://doi.org/10.1016/j.marpolbul.2022.113954">https://doi.org/10.1016/j.marpolbul.2022.113954</a></div>
-										<div class="csl-entry">Agostini, S., Houlbrèque, F., Biscéré, T., Harvey, B.P., <b>Heitzman, J.M.</b>, Takimoto, R., Yamazaki, W., Milazzo, M., Rodolfo-Metalpa, R., 2021. Greater mitochondrial energy production provides resistance to ocean acidification in "winning" hermatypic corals. <i>Frontiers in Marine Science</i> 7, 600836. <a href="https://doi.org/10.3389/fmars.2020.600836">https://doi.org/10.3389/fmars.2020.600836</a></div>
-									</div>
 								</div>
 							</section>
 
 						<!-- Contact -->
 							<section id="contact">
 								<div class="container">
-									<h3>Contact</h3>
+									<h2 class="section-title">Contact</h2>
 									<p>I'm always happy to hear from prospective collaborators and students.</p>
 									<ul class="feature-icons">
-										<li class="icon solid fa-envelope"><a href="mailto:joheitzman@gmail.com">joheitzman@gmail.com</a></li>
-										<li class="icon solid fa-university"><a href="mailto:heitzman@hiroshima-u.ac.jp">heitzman@hiroshima-u.ac.jp</a></li>
+										<li class="icon solid fa-envelope"><a href="mailto:heitzman@hiroshima-u.ac.jp">heitzman@hiroshima-u.ac.jp</a></li>
 										<li class="icon brands fa-orcid"><a href="https://orcid.org/0000-0002-8275-5006">ORCID 0000-0002-8275-5006</a></li>
+										<li class="icon solid fa-address-card"><a href="https://researchmap.jp/joheitzman">researchmap</a></li>
+										<li class="icon solid fa-graduation-cap"><a href="https://scholar.google.com/citations?user=quJpCWkAAAAJ">Google Scholar</a></li>
 										<li class="icon brands fa-researchgate"><a href="https://www.researchgate.net/profile/Joshua-Heitzman">ResearchGate</a></li>
 									</ul>
 								</div>
@@ -357,21 +264,14 @@
 						<div class="container">
 							<ul class="copyright">
 								<li>&copy; Joshua M. Heitzman</li>
-								<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li>Based on a design by <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
 					</section>
 
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<a href="#top" class="to-top" aria-label="Back to top"><span class="icon solid fa-arrow-up" aria-hidden="true"></span></a>
 
 		<!-- Field site slideshow -->
 			<div id="site-viewer" hidden role="dialog" aria-modal="true" aria-label="Site photos">
@@ -391,7 +291,10 @@
 			</div>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 			<script src="assets/js/sites-data.js"></script>
+		<script src="assets/js/sites-field.js"></script>
 			<script src="assets/js/sites.js"></script>
+		<script src="assets/js/field-panel.js"></script>
+			<script src="assets/js/site.js"></script>
 
 	</body>
 </html>

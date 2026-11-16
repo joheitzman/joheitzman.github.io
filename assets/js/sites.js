@@ -5,14 +5,37 @@
 	var mapEl = document.getElementById('sites-map');
 	if (!mapEl || !window.L || !sites.length) return;
 
-	var base = function (site, file) { return 'images/sites/' + site.id + '/' + file; };
+	// Image paths are relative to the site root, so the map also works on /ja/.
+	var script = document.currentScript;
+	var root = script ? script.src.replace(/assets\/js\/sites\.js(\?.*)?$/, '') : '';
+
+	// Japanese labels (assets/js/sites-ja.js) on pages with <html lang="ja">.
+	var ja = document.documentElement.lang === 'ja' ? window.FIELD_SITES_JA : null;
+	var T = ja ? ja.ui : { view: 'view photos', photo: 'Photo', by: 'Photo: ', sep: ', ' };
+	var countLabel = ja ? function (n) { return '写真' + n + '枚 · クリックで表示'; } : function (n) { return n + ' photos · click to view'; };
+	if (ja) {
+		sites = sites.map(function (s) {
+			var o = {};
+			for (var k in s) o[k] = s[k];
+			var tr = ja.sites[s.id] || {};
+			for (var t in tr) o[t] = tr[t];
+			o.photos = s.photos.map(function (p) {
+				return { caption: ja.captions[p.caption] || p.caption, credit: p.credit, aerial: p.aerial };
+			});
+			return o;
+		});
+	}
+
+	window.SITES_MAP = window.SITES_MAP || {};
+
+	var base = function (site, file) { return root + 'images/sites/' + site.id + '/' + file; };
 	var thumb = function (site, i) { return base(site, (i + 1) + '-s.jpg'); };
 	var full = function (site, i) { return base(site, (i + 1) + '.jpg'); };
 
 	// ---------- Map ----------
 	var map = L.map(mapEl, { scrollWheelZoom: false, zoomSnap: 0.25, minZoom: 4, maxZoom: 10 });
-	L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}', {
-		attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
+	L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors, and the GIS user community',
 		maxZoom: 10
 	}).addTo(map);
 
@@ -33,29 +56,26 @@
 		marker.bindTooltip(
 			'<div class="site-card"><img src="' + thumb(s, cover) + '" alt="" width="240" height="160" loading="lazy" />' +
 			'<strong>' + esc(s.name) + '</strong><span>' + esc(s.when) + (s.project ? ' · ' + esc(s.project) : '') + '</span>' +
-			'<em>' + s.photos.length + ' photos · click to view</em></div>',
+			'<em>' + countLabel(s.photos.length) + '</em></div>',
 			{ direction: 'top', offset: [0, -8], className: 'site-tooltip', opacity: 1 }
 		);
 		marker.on('mouseover', function () { marker.setStyle({ radius: 11 }); });
 		marker.on('mouseout', function () { marker.setStyle({ radius: 8 }); });
 		marker.on('click', function () { openViewer(s, 0); });
+		// Keyboard access: each dot can be tabbed to and opened with Enter/Space.
+		var el = marker.getElement();
+		if (el) {
+			el.setAttribute('tabindex', '0');
+			el.setAttribute('role', 'button');
+			el.setAttribute('aria-label', s.name + T.sep + s.when + ': ' + T.view);
+			el.addEventListener('focus', function () { marker.openTooltip(); });
+			el.addEventListener('blur', function () { marker.closeTooltip(); });
+			el.addEventListener('keydown', function (e) {
+				if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openViewer(s, 0); }
+			});
+		}
 		s._marker = marker;
 	});
-
-	// Site list under the map (works for keyboard and touch users too)
-	var list = document.getElementById('sites-list');
-	if (list) {
-		sites.slice().sort(function (a, b) { return b.lat - a.lat; }).forEach(function (s) {
-			var li = document.createElement('li');
-			var btn = document.createElement('button');
-			btn.type = 'button';
-			btn.innerHTML = '<span class="dot ' + (s.tara ? 'tara' : 'other') + '"></span>' + esc(s.name) + ' <small>' + esc(s.when) + '</small>';
-			btn.addEventListener('click', function () { openViewer(s, 0); });
-			btn.addEventListener('mouseenter', function () { s._marker.openTooltip(); });
-			btn.addEventListener('mouseleave', function () { s._marker.closeTooltip(); });
-			li.appendChild(btn); list.appendChild(li);
-		});
-	}
 
 	// ---------- Slideshow ----------
 	var viewer = document.getElementById('site-viewer');
@@ -75,7 +95,7 @@
 		img.onload = function () { img.classList.remove('loading'); };
 		img.src = full(current, idx);
 		img.alt = p.caption || current.name;
-		caption.textContent = (p.caption || '') + (p.credit ? ' · Photo: ' + p.credit : '');
+		caption.textContent = (p.caption || '') + (p.credit ? ' · ' + T.by + p.credit : '');
 		counter.textContent = (idx + 1) + ' / ' + n;
 		Array.prototype.forEach.call(strip.children, function (b, j) { b.classList.toggle('active', j === idx); });
 		var active = strip.children[idx];
@@ -92,11 +112,12 @@
 		strip.innerHTML = '';
 		site.photos.forEach(function (p, j) {
 			var b = document.createElement('button');
-			b.type = 'button'; b.setAttribute('aria-label', 'Photo ' + (j + 1));
+			b.type = 'button'; b.setAttribute('aria-label', T.photo + ' ' + (j + 1));
 			b.innerHTML = '<img src="' + thumb(site, j) + '" alt="" loading="lazy" />';
 			b.addEventListener('click', function () { show(j); });
 			strip.appendChild(b);
 		});
+		if (window.SITES_MAP.onOpen) window.SITES_MAP.onOpen(site);
 		viewer.hidden = false;
 		document.body.classList.add('sv-open');
 		show(i);
@@ -116,6 +137,7 @@
 	document.addEventListener('keydown', function (e) {
 		if (viewer.hidden) return;
 		if (e.key === 'Escape') closeViewer();
+		else if (viewer.classList.contains('sv-data-mode')) return;
 		else if (e.key === 'ArrowRight') show(idx + 1);
 		else if (e.key === 'ArrowLeft') show(idx - 1);
 	});
@@ -130,4 +152,8 @@
 
 	var reset = document.getElementById('sites-reset');
 	if (reset) reset.addEventListener('click', fit);
+
+	// Hook for field-panel.js (data tab, colour-by switch).
+	window.SITES_MAP = window.SITES_MAP || {};
+	window.SITES_MAP.map = map; window.SITES_MAP.sites = sites;
 })();
